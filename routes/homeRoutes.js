@@ -6,12 +6,21 @@ const db = require("../config/db");
 
 const router = express.Router();
 
-// Get All News
+// Get All News that is not archived
 router.get("/", (req, res) => {
-    db.query("SELECT * FROM news", (err, results) => {
+    db.query("SELECT id, title, thumbnail FROM news WHERE isDeleted = 0", (err, results) => {
         if (err) return res.status(500).json(err);
-        res.json(results);
+
+        // Add localhost:5000 to the image path
+        const formattedResults = results.map(news => ({
+            id: news.id,
+            title: news.title,
+            thumbnail: `http://localhost:5000${news.thumbnail}`
+        }));
+
+        res.json(formattedResults);
     });
 });
+
 
 module.exports = router;
