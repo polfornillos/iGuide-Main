@@ -24,7 +24,7 @@ tbody td img{
     max-width: 1650px;
     margin: 5px auto; 
     padding: 0 20px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 .crisis-font{
@@ -65,9 +65,9 @@ tbody td img{
     color: #BBBBBB;
 }
 
-.text-sda{
-    color: #1EAFEC;
-}
+/* Themed Font colors */
+.text-sda{color: #1EAFEC;}
+.text-soc{color: #FFE102;}
 
 .current-page{
     font-weight: 700;
