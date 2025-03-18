@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             carouselInner.innerHTML = ""; 
 
+            // Limit the data to a maximum of 9 items
+            data = data.slice(0, 9);
+
             if (data.length === 0) {
                 // If no news, display a fallback message and hide the "See More" button
                 carouselInner.innerHTML = `
@@ -65,5 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error fetching news:", error));
 });
+
 
 
