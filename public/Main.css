@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Lexend:wght@100..900&display=swap');
+
+
+body,
+html {
+    font-family: "Lexend", sans-serif;
+    font-weight: 300;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, #10326F, #000000);
+    overflow-x: hidden;
+}
+
+tbody{
+    border-bottom-color: transparent !important;
+}
+
+tbody td img{
+    width: 100%;
+}
+
+.container {
+    max-width: 1650px;
+    margin: 5px auto; 
+    padding: 0 20px;
+    /* border: 1px solid red; */
+}
+
+.crisis-font{
+    font-family: "Climate Crisis", sans-serif;
+}
+
+.text-overflow{
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.btn-white{
+    background-color: white;
+    color: #10326F;
+    font-weight: 600;
+}
+
+.btn-white:hover, .btn-white:active {
+    background-color: #BBBBBB !important;
+}
+
+.btn-white:active, .btn-transparent:active {
+    transform: scale(0.95);
+    transition: all 0.1s ease-in-out;
+}
+
+.btn-transparent{
+    background-color: none;
+    border: 1px solid white;
+    font-weight: 600;
+    color: white;
+}
+
+.btn-transparent:hover{
+    border: 1px solid #BBBBBB;
+    color: #BBBBBB;
+}
+
+.text-sda{
+    color: #1EAFEC;
+}
+
+.current-page{
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Animated underline effect */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Expands underline on hover */
+}
+
+/* Changes Navbar toggler to white instead of the default black in mobile */
+.navbar-toggler {
+    border-color: white; 
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* .news-container{
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+} */
+
+.news-thumbnail{
+    height: 200px;
+    width: 100%;
+    background-color: white;
+}
+
+.news-thumbnail img{
+    object-fit: cover;
+}
+
+.top-content-container{
+    max-width: 1650px !important;
+    height: 700px; /* Adjust height as needed */
+}
+
+.top-content-image-container{
+    background: url('image assets/iac_bldg.jpg') no-repeat center center;
+    background-position: 0% 0%;
+    background-size: cover;
+}
+
+.home-container{
+    max-width:1200px;
+    margin-top:200px;
+    gap:20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.program-box {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    filter: grayscale(100%);
+}
+
+.program-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: background 0.4s ease-in-out;
+}
+
+/* Background images */
+.soc-container { background: url('image assets/SOC.jpg') no-repeat center center; background-size: cover; }
+.sbla-container { background: url('image assets/SBLA.jpg') no-repeat center center; background-size: cover; }
+.soda-container { background: url('image assets/SODA.jpg') no-repeat center center; background-size: cover; }
+.shs-container { background: url('image assets/SHS.jpg') no-repeat center center; background-size: cover; }
+
+.program-title {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.program-box:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+.program-box:hover::after {
+    background: rgba(0, 0, 0, 0);
+}
+
+.responsive-header{
+    font-size: 50px;
+}
+
+.responsive-subheader{
+    font-size: 30px;
+}
+
+
+@media (max-width: 1200px) { /* Large devices (laptops, desktops) */
+    .responsive-header {
+        font-size: 40px;
+        width: 900px;
+    }
+    
+    .responsive-subheader{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) { /* Small devices (phones) */
+    .responsive-header {
+        font-size: 30px;
+        width: 900px;
+    }
+
+    .program-box {
+        width: 250px;
+        height: 350px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) { /* Extra small devices (smaller phones) */
+
+}
+
+
+@media (max-width: 480px) { /* Mobile screens (480px and below) */
+    .program-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
