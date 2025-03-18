@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             const carouselInner = document.querySelector("#newsCarousel .carousel-inner");
+            const seeMoreBtn = document.getElementById("seeMoreBtn");
+
             carouselInner.innerHTML = ""; 
 
             if (data.length === 0) {
-                // If no news, display a fallback message
+                // If no news, display a fallback message and hide the "See More" button
                 carouselInner.innerHTML = `
                     <div class="carousel-item active">
                         <div class="text-center text-white fs-4 py-5">
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 `;
+                seeMoreBtn.style.display = "none";
                 return;
             }
 
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     (news) => `
                                         <div class="col-md-4 text-center">
                                             <img src="${news.thumbnail}" class="news-img img-fluid rounded" alt="${news.title}">
-                                            <p class="text-white mt-2 fs-5">${news.title}</p>
+                                            <p class="text-white mt-2 fs-5 news-title">${news.title}</p>
                                         </div>
                                     `
                                 )
@@ -56,7 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
                 carouselInner.innerHTML += carouselItem;
             }
+
+            // Show "See More" button if there is news
+            seeMoreBtn.style.display = "inline-block";
         })
         .catch(error => console.error("Error fetching news:", error));
 });
+
 

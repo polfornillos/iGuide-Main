@@ -68,15 +68,18 @@ tbody td img{
 }
 
 .btn-transparent{
-    background-color: none;
+    background: none;
     border: 1px solid white;
     font-weight: 600;
     color: white;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
 .btn-transparent:hover{
-    border: 1px solid #BBBBBB;
-    color: #BBBBBB;
+    border: 1px solid white;
+    background:white;
+    color: #000000;
 }
 
 /* Themed Font colors */
@@ -116,23 +119,6 @@ tbody td img{
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* .news-container{
-    overflow: hidden;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-} */
-
-.news-thumbnail{
-    height: 200px;
-    width: 100%;
-    background-color: white;
-}
-
-.news-thumbnail img{
-    object-fit: cover;
 }
 
 .top-content-container{
@@ -305,7 +291,7 @@ tbody td img{
     transform: translateY(-50%);
 }
 
-.news-text {
+.news-title {
     max-width: 100%; 
     height: 60px;
     overflow: hidden;
