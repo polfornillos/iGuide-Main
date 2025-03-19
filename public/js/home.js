@@ -1,6 +1,6 @@
 // Populates the artworks carousel
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:5001/home/artworks")  // Make sure the URL matches your backend route
+    fetch("http://localhost:5000/artworks/active")  // Make sure the URL matches your backend route
         .then(response => response.json())
         .then(data => {
             const carouselInner = document.getElementById("carouselInner");
@@ -11,17 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
             carouselIndicators.innerHTML = "";
 
             data = data.slice(0, 4);
-
-            if (data.length === 0) {
-                carouselInner.innerHTML = `
-                    <div class="carousel-item active">
-                        <div class="text-center text-white fs-4 py-5">
-                            No artworks available at the moment. Stay tuned for updates!
-                        </div>
-                    </div>
-                `;
-                return;
-            }
 
             data.forEach((artwork, index) => {
                 let activeClass = index === 0 ? "active" : "";
@@ -58,36 +47,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Populates the news carousel
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:5001/home/news") 
-        .then(response => response.json())
+    fetch("http://localhost:5000/news/active")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server Error: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             const carouselInner = document.querySelector("#newsCarousel .carousel-inner");
             const seeMoreBtn = document.getElementById("seeMoreBtn");
-            const newsModal = new bootstrap.Modal(document.getElementById("newsModal")); // Initialize Bootstrap modal
+            const newsModal = new bootstrap.Modal(document.getElementById("newsModal"));
 
-            carouselInner.innerHTML = ""; 
+            carouselInner.innerHTML = ""; // Clear existing content
 
-            // Limit the data to a maximum of 9 items
-            data = data.slice(0, 9);
-
-            if (data.length === 0) {
-                carouselInner.innerHTML = `
-                    <div class="carousel-item active">
-                        <div class="text-center text-white fs-4 py-5">
-                            No news available at the moment. Stay tuned for updates!
-                        </div>
-                    </div>
-                `;
-                seeMoreBtn.style.display = "none";
-                return;
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error("No news available.");
             }
 
+            const totalNews = data.length; // Get the total available news
+            const maxItems = 6; // Maximum items to display initially
+            const newsToShow = data.slice(0, maxItems); // Only show the first 6
+
             let chunkSize = 3;
-            let totalItems = data.length;
-            let numSlides = Math.ceil(totalItems / chunkSize);
+            let numSlides = Math.ceil(newsToShow.length / chunkSize);
 
             for (let i = 0; i < numSlides; i++) {
-                let chunk = data.slice(i * chunkSize, (i + 1) * chunkSize);
+                let chunk = newsToShow.slice(i * chunkSize, (i + 1) * chunkSize);
                 let activeClass = i === 0 ? "active" : "";
 
                 let carouselItem = `
@@ -95,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="row">
                             ${chunk
                                 .map(
-                                    (news, index) => `
+                                    (news) => `
                                         <div class="col-md-4 text-center news-item" style="cursor:pointer;">
                                             <img src="${news.thumbnail}" 
                                                 class="news-img img-fluid rounded clickable-news" 
@@ -117,8 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 carouselInner.innerHTML += carouselItem;
             }
 
-            // Show "See More" button if there is news
-            seeMoreBtn.style.display = "inline-block";
+            // Show "See More" button only if there are more than 6 news items
+            if (totalNews > maxItems) {
+                seeMoreBtn.style.display = "inline-block";
+            } else {
+                seeMoreBtn.style.display = "none";
+            }
 
             // Attach click event listener to dynamically added elements
             document.querySelectorAll(".clickable-news").forEach(item => {
@@ -132,7 +122,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
         })
-        .catch(error => console.error("Error fetching news:", error));
+        .catch(error => {
+            console.error("Error fetching news:", error.message);
+            
+            const carouselInner = document.querySelector("#newsCarousel .carousel-inner");
+            carouselInner.innerHTML = `
+                <div class="carousel-item active">
+                    <div class="text-center text-white fs-4 py-5">
+                        No news available at the moment. Stay tuned for updates!
+                    </div>
+                </div>
+            `;
+
+            document.getElementById("seeMoreBtn").style.display = "none"; // Hide button on failure
+        });
 });
 
 

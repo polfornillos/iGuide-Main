@@ -4,13 +4,30 @@ document.addEventListener("DOMContentLoaded", function () {
     let visibleCount = 6; // Initially display 6 artworks
 
     function fetchArtworks() {
-        fetch("http://localhost:5001/gallery/artworks")
-            .then(response => response.json())
+        fetch("http://localhost:5000/artworks/active")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Server Error: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                if (!Array.isArray(data) || data.length === 0) {
+                    throw new Error("No artworks available.");
+                }
                 artworks = data;
                 renderArtworks();
             })
-            .catch(error => console.error("Error fetching artworks:", error));
+            .catch(error => {
+                console.error("Error fetching artworks:", error.message);
+
+                document.getElementById("artGallery").innerHTML = `
+                    <div class="text-center text-white fs-4 py-5">
+                        No artworks available at the moment.
+                    </div>
+                `;
+                document.getElementById("seeMoreBtn").style.display = "none";
+            });
     }
 
     function renderArtworks() {
@@ -45,9 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load more artworks when the "See More" button is clicked
     document.getElementById("seeMoreBtn").addEventListener("click", function () {
-        visibleCount += 6; // Load 6 more artworks
+        visibleCount += 6;
         renderArtworks();
     });
 
     fetchArtworks();
 });
+
