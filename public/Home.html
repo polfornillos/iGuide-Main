@@ -15,7 +15,7 @@
     <div class="container d-flex align-items-center p-0">
 
         <a class="navbar-brand pe-none" href="#">
-            <img src="image assets/iac_logo_w.png" alt="Logo" height="40">
+            <img src="image_assets/iac_logo_w.png" alt="Logo" height="40">
         </a>
 
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,8 +50,10 @@
     </div>
 </nav>
 
-
+<!-- Main Content -->
 <div class="container  my-5 p-0 d-flex flex-column justify-content-center">
+
+    <!-- Top Content -->
     <div class="container top-content-container position-relative p-lg-0 p-lg-3">
         <div class="position-absolute z-3 top-50 start-50 translate-middle text-white text-center fw-lighter w-100 responsive-header px-5">
             <p class="mb-0">THE  <span class="fw-bold">LEADING SCHOOL</span> FOR <span class="fw-bold">TECH & DESIGN</span></p>
@@ -61,14 +63,16 @@
         <div class="top-content-image-container w-100 h-100 opacity-50 rounded"></div>
     </div>
 
+    <!-- Tagline 1 -->
     <div class="container home-container flex-column flex-lg-row p-3">
-        <img src="image assets/home/community.png" class="community-image-container img-fluid" width="700px">
+        <img src="image_assets/home/community.png" class="community-image-container img-fluid" width="700px">
         <div class="p-lg-3 p-md-5 p-3">
             <h1 class="text-sda fw-bold mb-3">Join our community of Game Changers!</h1>
-            <p class="text-white text-wrap">Be part of a vibrant network of innovators and visionaries. Discover how our community empowers individuals to make a difference and create lasting impact.</p>
+            <p class="text-white text-wrap fs-5">Be part of a vibrant network of innovators and visionaries. Discover how our community empowers individuals to make a difference and create lasting impact.</p>
         </div>
     </div>
 
+    <!-- TOur Programs -->
     <div class="container d-flex flex-column justify-content-center align-items-center " style="margin-top: 200px;">
         <h1 class="text-white crisis-font mb-5 text-center">OUR PROGRAMS</h1>
        
@@ -92,41 +96,23 @@
         </div>
     </div>
 
+    <!-- Tagline 2 -->
     <div class="container home-container p-3 ">
         <div class="p-lg-3 p-md-5 p-3 d-flex flex-column justify-content-center align-items-center text-center" >
             <h1 class="text-soc fw-bold mb-3">Future-proof your career with iACADEMY</h1>
-           <div style="max-width: 500px;">
-            <p class="text-white" >We equip students with hands-on experience, expert guidance, and industry-driven tools to succeed in unpredictable landscapes. 
+           <div style="max-width: 650px;">
+            <p class="text-white fs-5" >We equip students with hands-on experience, expert guidance, and industry-driven tools to succeed in unpredictable landscapes. 
                 Embrace the challenge. Shape the future.</p>
            </div>
         </div>
     </div>
 
+    <!-- Student Works -->
     <div class="container p-lg-0 p-lg-3" style="margin-top: 200px;">
         <div class="position-relative">
             <div id="artworkCarousel" class="carousel slide" data-bs-ride="carousel">
-
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#artworkCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#artworkCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#artworkCarousel" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#artworkCarousel" data-bs-slide-to="3"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-artist="Paul Fornillos">
-                        <img src="image assets/home/artwork_1.png" class="d-block w-100 artwork-img" alt="Artwork 1">
-                    </div>
-                    <div class="carousel-item" data-artist="Justine Janelle Reyes">
-                        <img src="image assets/home/artwork_2.jpg" class="d-block w-100 artwork-img" alt="Artwork 2">
-                    </div>
-                    <div class="carousel-item" data-artist="Paul Fornillos">
-                        <img src="image assets/home/artwork_3.png" class="d-block w-100 artwork-img" alt="Artwork 3">
-                    </div>
-                    <div class="carousel-item" data-artist="Marc Dimacuha">
-                        <img src="image assets/home/artwork_4.png" class="d-block w-100 artwork-img" alt="Artwork 4">
-                    </div>
-                </div>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+                <div class="carousel-inner" id="carouselInner"></div>
             </div>
     
             <!-- Dark Overlay -->
@@ -136,13 +122,14 @@
                 <h2 class="fw-bold">Student Works</h2>
                 <p class="fs-5">A showcase of creativity, innovation, and talent</p>
                 <div class="d-flex justify-content-between align-items-center mt-5 flex-lg-row flex-column">
-                    <p class="fw-light mb-0">Artwork By: <strong id="artist-name">Paul Fornillos</strong></p>
+                    <p class="fw-light mb-0">Artwork By: <strong id="artist-name">Loading...</strong></p>
                     <a href="#" class="see-more">See More</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Newsletter -->
     <div class="container p-lg-0 p-lg-3" style="margin-top: 200px;">
         <h1 class="text-white crisis-font mb-5 text-center">NEWSLETTER</h1>
     
@@ -156,15 +143,15 @@
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/SBLA.jpg" class="news-img img-fluid rounded" alt="News 1">
+                                <img src="image_assets/home/SBLA.jpg" class="news-img img-fluid rounded" alt="News 1">
                                 <p class="text-white mt-2 fs-5 news-text">Tech Updates: Innovations</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/SOC.jpg" class="news-img img-fluid rounded" alt="News 2">
+                                <img src="image_assets/home/SOC.jpg" class="news-img img-fluid rounded" alt="News 2">
                                 <p class="text-white mt-2 fs-5">Tech Updates: Innovations</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/SHS.jpg" class="news-img img-fluid rounded" alt="News 3">
+                                <img src="image_assets/home/SHS.jpg" class="news-img img-fluid rounded" alt="News 3">
                                 <p class="text-white mt-2 fs-5">Tech Updates: Innovations</p>
                             </div>
                         </div>
@@ -173,15 +160,15 @@
                     <div class="carousel-item">
                         <div class="row g-2">
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/artwork_1.png" class="news-img img-fluid rounded" alt="News 4">
+                                <img src="image_assets/home/artwork_1.png" class="news-img img-fluid rounded" alt="News 4">
                                 <p class="text-white mt-2 fs-5">Science Discoveries</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/artwork_2.jpg" class="news-img img-fluid rounded" alt="News 5">
+                                <img src="image_assets/home/artwork_2.jpg" class="news-img img-fluid rounded" alt="News 5">
                                 <p class="text-white mt-2 fs-5">Gaming Industry Trends</p>
                             </div>
                             <div class="col-md-4 text-center">
-                                <img src="image assets/home/artwork_3.png" class="news-img img-fluid rounded" alt="News 6">
+                                <img src="image_assets/home/artwork_3.png" class="news-img img-fluid rounded" alt="News 6">
                                 <p class="text-white mt-2 fs-5">Health & Wellness</p>
                             </div>
                         </div>
@@ -201,14 +188,40 @@
         </div>
     </div>
     
+    <!-- Spacer -->
     <div class="container" style="height: 200px;"></div>
+
+    <!-- News Modal -->
+    <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-iac border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <div class="w-100">
+                        <img id="modalImage" src="" class="img-fluid w-100 object-fit-cover d-block"
+                             style="height: 450px; margin-top: -1px;" alt="News Image">
+                    </div>
+                    <div class="w-100 p-4">
+                        <h5 class="modal-title my-3 text-start" id="modalTitle">News Title</h5>
+                        <p id="modalDescription" class="text-start"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
 </div>
 
+<!-- Footer -->
 <footer class="bg-black text-white py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-lg-0 mb-5 text-center">
-                <img src="image assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
+                <img src="image_assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
                 <div class="mb-3">
                     <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
                     <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>

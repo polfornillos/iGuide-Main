@@ -86,6 +86,10 @@ tbody td img{
 .text-sda{color: #1EAFEC;}
 .text-soc{color: #FFE102;}
 
+/* Themed Background colors */
+.bg-iac{background-color: #10326F;}
+
+
 .current-page{
     font-weight: 700;
 }
@@ -127,7 +131,7 @@ tbody td img{
 }
 
 .top-content-image-container{
-    background: url('image assets/home/iac_bldg.jpg') no-repeat center center;
+    background: url('image_assets/home/iac_bldg.jpg') no-repeat center center;
     background-position: 0% 0%;
     background-size: cover;
 }
@@ -182,10 +186,10 @@ tbody td img{
 }
 
 /* Background images */
-.soc-container { background: url('image assets/home/SOC.jpg') no-repeat center center; background-size: cover; }
-.sbla-container { background: url('image assets/home/SBLA.jpg') no-repeat center center; background-size: cover; }
-.soda-container { background: url('image assets/home/SODA.jpg') no-repeat center center; background-size: cover; }
-.shs-container { background: url('image assets/home/SHS.jpg') no-repeat center center; background-size: cover; }
+.soc-container { background: url('image_assets/home/SOC.jpg') no-repeat center center; background-size: cover; }
+.sbla-container { background: url('image_assets/home/SBLA.jpg') no-repeat center center; background-size: cover; }
+.soda-container { background: url('image_assets/home/SODA.jpg') no-repeat center center; background-size: cover; }
+.shs-container { background: url('image_assets/home/SHS.jpg') no-repeat center center; background-size: cover; }
 
 .program-title {
     position: absolute;
@@ -297,6 +301,13 @@ tbody td img{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+#modalTitle {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
 }
 
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */

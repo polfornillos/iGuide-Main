@@ -1,13 +1,59 @@
-// Changes the name of the artist based on the art displayed
+// Populates the artworks carousel
 document.addEventListener("DOMContentLoaded", function () {
-    var carousel = document.getElementById("artworkCarousel");
-    var artistName = document.getElementById("artist-name");
+    fetch("http://localhost:5001/home/artworks")  // Make sure the URL matches your backend route
+        .then(response => response.json())
+        .then(data => {
+            const carouselInner = document.getElementById("carouselInner");
+            const carouselIndicators = document.getElementById("carouselIndicators");
+            const artistName = document.getElementById("artist-name");
 
-    carousel.addEventListener("slide.bs.carousel", function (event) {
-        var nextSlide = event.relatedTarget;
-        var artist = nextSlide.getAttribute("data-artist");
-        artistName.textContent = artist;
-    });
+            carouselInner.innerHTML = "";
+            carouselIndicators.innerHTML = "";
+
+            data = data.slice(0, 4);
+            
+            if (data.length === 0) {
+                carouselInner.innerHTML = `
+                    <div class="carousel-item active">
+                        <div class="text-center text-white fs-4 py-5">
+                            No artworks available at the moment. Stay tuned for updates!
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            data.forEach((artwork, index) => {
+                let activeClass = index === 0 ? "active" : "";
+
+                // Create carousel item
+                let carouselItem = `
+                    <div class="carousel-item ${activeClass}" data-artist="${artwork.student_name}">
+                        <img src="${artwork.artwork}" class="d-block w-100 artwork-img" alt="Artwork ${index + 1}">
+                    </div>
+                `;
+                carouselInner.innerHTML += carouselItem;
+
+                // Create carousel indicator
+                let indicator = `
+                    <button type="button" data-bs-target="#artworkCarousel" data-bs-slide-to="${index}" class="${activeClass}"></button>
+                `;
+                carouselIndicators.innerHTML += indicator;
+            });
+
+            // Set the artist name dynamically when the slide changes
+            const carousel = document.getElementById("artworkCarousel");
+            carousel.addEventListener("slid.bs.carousel", function () {
+                const activeItem = document.querySelector("#artworkCarousel .carousel-item.active");
+                if (activeItem) {
+                    artistName.textContent = activeItem.getAttribute("data-artist");
+                }
+            });
+
+            // Set initial artist name
+            artistName.textContent = data[0].student_name;
+        })
+        .catch(error => console.error("Error fetching artworks:", error));
 });
 
 // Populates the news carousel
@@ -17,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             const carouselInner = document.querySelector("#newsCarousel .carousel-inner");
             const seeMoreBtn = document.getElementById("seeMoreBtn");
+            const newsModal = new bootstrap.Modal(document.getElementById("newsModal")); // Initialize Bootstrap modal
 
             carouselInner.innerHTML = ""; 
 
@@ -24,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             data = data.slice(0, 9);
 
             if (data.length === 0) {
-                // If no news, display a fallback message and hide the "See More" button
                 carouselInner.innerHTML = `
                     <div class="carousel-item active">
                         <div class="text-center text-white fs-4 py-5">
@@ -49,9 +95,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="row">
                             ${chunk
                                 .map(
-                                    (news) => `
+                                    (news, index) => `
                                         <div class="col-md-4 text-center">
-                                            <img src="${news.thumbnail}" class="news-img img-fluid rounded" alt="${news.title}">
+                                            <img src="${news.thumbnail}" 
+                                                 class="news-img img-fluid rounded clickable-news" 
+                                                 alt="${news.title}" 
+                                                 data-bs-toggle="modal" 
+                                                 data-bs-target="#newsModal"
+                                                 data-title="${news.title}" 
+                                                 data-description="${news.description}"
+                                                 data-thumbnail="${news.thumbnail}">
                                             <p class="text-white mt-2 fs-5 news-title">${news.title}</p>
                                         </div>
                                     `
@@ -65,9 +118,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Show "See More" button if there is news
             seeMoreBtn.style.display = "inline-block";
+
+            // Attach click event listener to dynamically added elements
+            document.querySelectorAll(".clickable-news").forEach(item => {
+                item.addEventListener("click", function () {
+                    document.getElementById("modalTitle").textContent = this.dataset.title;
+                    document.getElementById("modalDescription").textContent = this.dataset.description;
+                    document.getElementById("modalImage").src = this.dataset.thumbnail;
+
+                    newsModal.show(); // Show the modal
+                });
+            });
         })
         .catch(error => console.error("Error fetching news:", error));
 });
+
 
 
 
