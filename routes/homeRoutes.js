@@ -7,7 +7,7 @@ const db = require("../config/db");
 const router = express.Router();
 
 // Get All News that is not archived
-router.get("/", (req, res) => {
+router.get("/news", (req, res) => {
     db.query("SELECT id, title, description, thumbnail FROM news WHERE isDeleted = 0", (err, results) => {
         if (err) return res.status(500).json(err);
 
@@ -24,15 +24,15 @@ router.get("/", (req, res) => {
 });
 
 // Get All Artwork that is not archived
-router.get("/home/artworks", (req, res) => {
+router.get("/artworks", (req, res) => {
     db.query("SELECT id, student_name, artwork FROM artworks WHERE isDeleted = 0", (err, results) => {
         if (err) return res.status(500).json(err);
 
         // Format the results to include full image URL
         const formattedResults = results.map(artwork => ({
-            id: artwork.id,  // Corrected variable reference
-            student_name: artwork.student_name,  // Corrected variable reference
-            artwork: `http://localhost:5000${artwork.artwork}` // Ensure the correct column name
+            id: artwork.id, 
+            student_name: artwork.student_name,  
+            artwork: `http://localhost:5000${artwork.artwork}`
         }));
 
         res.json(formattedResults);

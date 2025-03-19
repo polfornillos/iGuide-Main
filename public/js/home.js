@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             carouselIndicators.innerHTML = "";
 
             data = data.slice(0, 4);
-            
+
             if (data.length === 0) {
                 carouselInner.innerHTML = `
                     <div class="carousel-item active">
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Populates the news carousel
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:5001/home") 
+    fetch("http://localhost:5001/home/news") 
         .then(response => response.json())
         .then(data => {
             const carouselInner = document.querySelector("#newsCarousel .carousel-inner");
@@ -96,16 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
                             ${chunk
                                 .map(
                                     (news, index) => `
-                                        <div class="col-md-4 text-center">
+                                        <div class="col-md-4 text-center news-item" style="cursor:pointer;">
                                             <img src="${news.thumbnail}" 
-                                                 class="news-img img-fluid rounded clickable-news" 
-                                                 alt="${news.title}" 
-                                                 data-bs-toggle="modal" 
-                                                 data-bs-target="#newsModal"
-                                                 data-title="${news.title}" 
-                                                 data-description="${news.description}"
-                                                 data-thumbnail="${news.thumbnail}">
-                                            <p class="text-white mt-2 fs-5 news-title">${news.title}</p>
+                                                class="news-img img-fluid rounded clickable-news" 
+                                                alt="${news.title}" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#newsModal"
+                                                data-id="${news.id}"
+                                                data-title="${news.title}" 
+                                                data-description="${news.description}"
+                                                data-thumbnail="${news.thumbnail}">
+                                            <p class="text-white mt-2 fs-5 title-text">${news.title}</p>
                                         </div>
                                     `
                                 )
@@ -122,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Attach click event listener to dynamically added elements
             document.querySelectorAll(".clickable-news").forEach(item => {
                 item.addEventListener("click", function () {
+                    document.getElementById("articleNumber").textContent = this.dataset.id;
                     document.getElementById("modalTitle").textContent = this.dataset.title;
                     document.getElementById("modalDescription").textContent = this.dataset.description;
                     document.getElementById("modalImage").src = this.dataset.thumbnail;

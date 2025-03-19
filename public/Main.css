@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Lexend:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Finger+Paint&family=Lexend:wght@100..900&display=swap');
 
 body,
 html {
@@ -11,6 +10,12 @@ html {
     background: linear-gradient(to bottom, #10326F, #000000);
     overflow-x: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 body::before {
@@ -41,10 +46,13 @@ tbody td img{
     /* border: 1px solid red; */
 }
 
-.crisis-font{
+.f-crisis{
     font-family: "Climate Crisis", sans-serif;
 }
 
+.f-art{
+    font-family: "Finger Paint", sans-serif;
+}
 .text-overflow{
     overflow: hidden;
     word-wrap: break-word;
@@ -62,7 +70,7 @@ tbody td img{
     background-color: #BBBBBB !important;
 }
 
-.btn-white:active, .btn-transparent:active, .see-more:active {
+.btn-white:active, .btn-transparent:active, .see-more:active, #seeMoreBtn:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;
 }
@@ -127,7 +135,7 @@ tbody td img{
 
 .top-content-container{
     max-width: 1650px !important;
-    height: 700px; /* Adjust height as needed */
+    height: 700px;
 }
 
 .top-content-image-container{
@@ -148,7 +156,7 @@ tbody td img{
 
 .program-container {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -170,10 +178,10 @@ tbody td img{
     text-decoration: none;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
-    filter: grayscale(100%);
+    filter: grayscale(100%); /* Initial black and white */
 }
 
-.program-box::after {
+.program-box::after { 
     content: "";
     position: absolute;
     top: 0;
@@ -199,7 +207,7 @@ tbody td img{
     padding: 10px;
 }
 
-.program-box:hover {
+.program-box:hover { /* Becomes colored when hovered */
     transform: scale(1.1);
     filter: grayscale(0%);
 }
@@ -226,7 +234,6 @@ tbody td img{
 .artwork-img {
     height: 450px;
     object-fit: cover;
-    filter: brightness(40%);
     border-radius: 10px;
 }
 
@@ -270,10 +277,19 @@ tbody td img{
 
 .news-img {
     width: 100%;
-    height: 200px; /* Adjust as needed */
-    object-fit: cover; /* Keeps image fit */
+    height: 200px;
+    object-fit: cover; 
 }
 
+.news-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.news-item:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+/* Custom controls for carousel */
 .carousel-control-prev,
 .carousel-control-next {
     width: 50px;
@@ -295,7 +311,7 @@ tbody td img{
     transform: translateY(-50%);
 }
 
-.news-title {
+.title-text {
     max-width: 100%; 
     height: 60px;
     overflow: hidden;
@@ -308,6 +324,87 @@ tbody td img{
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 100%;
+}
+
+.gallery-container {
+    position: relative;
+    overflow: hidden; /* Ensures animation stays inside */
+    border-radius: 8px;
+    height: 600px;
+
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+.gallery-container::after { /* Gradient overlay when hovering */
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    transition: bottom 0.4s ease-in-out;
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #FFE102;
+}
+
+/* Hover effects for the gallery container */
+.gallery-container:hover::after {
+    bottom: 0; /* Pulls up the gradient */
+}
+
+.gallery-container:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+.gallery-container:hover .social-icons {
+    opacity: 1; /* Show icons */
+}
+
+#seeMoreBtn{
+    display: inline-block;
+    color: #FFE102;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 2px solid #FFE102;
+    border-radius: 5px;
+    transition: 0.3s;
+    background: none;
+}
+
+#seeMoreBtn:hover{
+    background: #FFE102;
+    color: black;
 }
 
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */
@@ -332,6 +429,8 @@ tbody td img{
         height: 350px;
         font-size: 16px;
     }
+    
+    
 }
 
 @media (max-width: 576px) { /* Extra small devices (smaller phones) */
