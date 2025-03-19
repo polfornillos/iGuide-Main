@@ -94,6 +94,7 @@ tbody td img{
 .text-iac{color: #10326F;}
 .text-sda{color: #1EAFEC;}
 .text-soc{color: #FFE102;}
+.text-sbla{color: #D93636;}
 
 /* Themed Background colors */
 .bg-iac{background-color: #10326F;}
@@ -483,6 +484,61 @@ tbody td img{
     color: black;
 }
 
+.about-us-header{
+    font-size: 70px;
+}
+
+.why-text{
+    font-size: 100px;
+}
+
+.our-why-desc{
+    max-width: 800px;
+    text-align: justify;
+}
+
+.what-is-yours-txt{
+    font-size: 65px;
+}
+
+.partner-box {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 20px 0px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.partner-box:active {
+    transform: scale(0.95);
+}
+
+.logo {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.partner-box:hover .logo {
+    transform: rotate(5deg);
+}
+
+.partner-header{
+    font-size: 70px;
+}
+
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */
     .responsive-header {
         font-size: 40px;
@@ -492,6 +548,8 @@ tbody td img{
     .responsive-subheader{
         font-size: 20px;
     }
+
+    
 }
 
 @media (min-width: 992px) {
@@ -506,8 +564,6 @@ tbody td img{
     .dropdown-menu.show {
         display: block;
     }
-
-    
 }
 
 @media (max-width: 768px) { /* Small devices (phones) */
@@ -525,7 +581,24 @@ tbody td img{
     .news-card-container{
         width: 100%;
     }
-    
+
+    .about-us-header{
+        font-size: 40px;
+        line-height: 1;
+    }    
+
+    .why-text{
+        font-size: 50px;
+
+    }
+   
+    .our-why-desc{
+        text-align: left;
+    }
+
+    .what-is-yours-txt, .partner-header{
+        font-size: 30px;
+    }
 }
 
 @media (max-width: 576px) { /* Extra small devices (smaller phones) */
