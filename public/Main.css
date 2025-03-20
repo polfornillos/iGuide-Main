@@ -571,6 +571,8 @@ tbody td img{
 .clickable-thumbnail {
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    min-height: 205.55px;
+    object-fit: cover;
 }
 
 .clickable-thumbnail:hover {
@@ -583,8 +585,8 @@ tbody td img{
 }
 
 #tourTitle{
-    font-size: 60px;
-    letter-spacing: 3px;
+    font-size: 70px;
+    font-weight: 700;
 }
 
 #floorSelection{
@@ -612,8 +614,6 @@ tbody td img{
     #floorView{
         height: 500px;
     }
-    
-    
 }
 
 @media (min-width: 992px) {
@@ -671,7 +671,6 @@ tbody td img{
 }
 
 @media (max-width: 576px) { /* Extra small devices (smaller phones) */
-
 }
 
 

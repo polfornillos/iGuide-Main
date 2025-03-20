@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 "img": "image_assets/school_tour/BC.png",
                 "name": "Basketball Court",
-                "location": "LP",
+                "location": "Lower Penthouse",
                 "description": "A full-sized basketball court where students can practice, compete, and engage in recreational activities.",
                 "url": "https://momento360.com/e/u/5900de9e76ac4b0aa0111905059ae72a"
             }
@@ -165,14 +165,14 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 "img": "image_assets/school_tour/TF.png",
                 "name": "Track & Field",
-                "location": "UP",
+                "location": "Upper Penthouse",
                 "description": "An outdoor track and field area designed for running, training, and various athletic events.",
                 "url": "https://momento360.com/e/u/31b2d082abab42fdb10c290a59424d40"
             },
             {
                 "img": "image_assets/school_tour/L.png",
                 "name": "Library",
-                "location": "UP",
+                "location": "Upper Penthouse",
                 "description": "A well-stocked library providing students with academic resources, study areas, and digital research materials.",
                 "url": "https://momento360.com/e/u/c15cd14fa2024b95b0d483bfbce98aab"
             }
