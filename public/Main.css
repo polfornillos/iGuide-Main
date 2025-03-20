@@ -93,7 +93,7 @@ tbody td img{
 /* Themed Font colors */
 .text-iac{color: #10326F;}
 .text-sda{color: #1EAFEC;}
-.text-soc{color: #FFE102;}
+.text-soc{color: #FFE102 !important;}
 .text-sbla{color: #D93636;}
 
 /* Themed Background colors */
@@ -539,6 +539,62 @@ tbody td img{
     font-size: 70px;
 }
 
+#floorSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#floorSelection label {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.floor-column{
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+#floorSelection input[type="radio"] {
+    margin-left: 10px;
+    transform: scale(1.2); /* Makes radio buttons slightly larger */
+}
+
+#tourframe{
+    cursor: grab; 
+}
+
+.clickable-thumbnail {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.clickable-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.clickable-thumbnail.active {
+    opacity: 1 !important;
+    transform: scale(1.1); 
+}
+
+#tourTitle{
+    font-size: 60px;
+    letter-spacing: 3px;
+}
+
+#floorSelection{
+    width:12%;
+}
+
+#floorView{
+    width: 88%;
+}
+
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */
     .responsive-header {
         font-size: 40px;
@@ -549,6 +605,14 @@ tbody td img{
         font-size: 20px;
     }
 
+    #floorSelection, #floorView{
+        width:100%;
+    }
+
+    #floorView{
+        height: 500px;
+    }
+    
     
 }
 
@@ -599,6 +663,11 @@ tbody td img{
     .what-is-yours-txt, .partner-header{
         font-size: 30px;
     }
+
+    #tourTitle{
+        font-size: 50px;
+    }
+    
 }
 
 @media (max-width: 576px) { /* Extra small devices (smaller phones) */
