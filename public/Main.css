@@ -597,6 +597,11 @@ tbody td img{
     width: 88%;
 }
 
+.video-description {
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}   
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */
     .responsive-header {
         font-size: 40px;
