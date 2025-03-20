@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Main.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg p-3">
+    <div class="container d-flex align-items-center p-0">
+
+        <a class="navbar-brand pe-none" href="#">
+            <img src="../image_assets/iac_logo_w.png" alt="Logo" height="40">
+        </a>
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ms-4 mt-5 mt-lg-0" id="navbarNav">
+            <ul class="navbar-nav d-flex" style="gap: 20px;">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="home.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-light dropdown-toggle" href="#" id="programsDropdown" role="button">
+                        Our Programs
+                    </a>
+                    <ul class="dropdown-menu bg-dark border-0" aria-labelledby="programsDropdown">
+                        <li><a class="dropdown-item text-light" href="programs/SOC.html">School of Computing</a></li>
+                        <li><a class="dropdown-item text-light" href="programs/SBLA.html">School of Business & Liberal Arts</a></li>
+                        <li><a class="dropdown-item text-light" href="programs/SDA.html">School of Design & Arts</a></li>
+                        <li><a class="dropdown-item text-light" href="programs/SHS.html">Senior High School</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light current-page" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="Video_archive.html">Video Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="School_tour.html">School Tour</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="About.html">About us</a>
+                </li>
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="#" class="btn btn-white w-100">Apply Now</a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="#" class="btn btn-white ms-auto py-2 d-none d-lg-block">Apply Now</a>
+    </div>
+</nav>
+
+
+<main>
+    <!-- Main Content -->
+    <div class="container my-5 p-4 text-center">
+        <h1 class="f-art text-soc mb-5">ART GALLERY</h1>
+
+        <!-- Spacer -->
+        <div class="container" style="height: 40px;"></div>
+
+        <div class="row g-5 justify-content-center" id="artGallery"></div>
+        <button id="seeMoreBtn" class="mt-4 px-5 fs-5">See More</button>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-black text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-lg-0 mb-5 text-center">
+                <img src="../image_assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
+                <div class="mb-3">
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-tiktok fa-lg"></i></a>
+                </div>
+                <p class="mb-0">© iAcademy. All Rights Reserved.</p>
+            </div>
+
+            <div class="col-md-8">
+                <h5 class="text-uppercase mb-3">Contact Us</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>iAcademy Makati</h6>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                            iACADEMY Nexus, 7434 Yakal St., Makati City<br>
+                            <i class="fas fa-phone"></i> (02) 8889 5555 <br>
+                            <i class="fas fa-envelope"></i> <a href="mailto:incquire@iacademy.edu.ph" class="text-white">Incquire@iacademy.edu.ph</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6>iAcademy Cebu</h6>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                            Filinvest Cebu Cyberzone Tower 2 Salinas Drive corner W. Geonzon St., Brgy. Apas, Lahug, Cebu City<br>
+                            <i class="fas fa-phone"></i> +63 32 520 4888 <br>
+                            <i class="fas fa-envelope"></i> <a href="mailto:inquirecebu@iacademy.edu.ph" class="text-white">inquirecebu@iacademy.edu.ph</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6><i class="fas fa-graduation-cap"></i> Courses</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Senior High School</a></li>
+                            <li><a href="#" class="text-white">School of Computing</a></li>
+                            <li><a href="#" class="text-white">School of Business and Liberal Arts</a></li>
+                            <li><a href="#" class="text-white">School of Design and Arts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/gallery.js"></script>
+<script src="../js/global.js"></script>
+
+</body>
+</html>

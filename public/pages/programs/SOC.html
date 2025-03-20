@@ -6,7 +6,7 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="Main.css">
+    <link rel="stylesheet" href="../../Main.css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <div class="container d-flex align-items-center p-0">
 
         <a class="navbar-brand pe-none" href="#">
-            <img src="image_assets/iac_logo_w.png" alt="Logo" height="40">
+            <img src="../../image_assets/iac_logo_w.png" alt="Logo" height="40">
         </a>
 
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,31 +26,32 @@
         <div class="collapse navbar-collapse ms-4 mt-5 mt-lg-0" id="navbarNav">
             <ul class="navbar-nav d-flex" style="gap: 20px;">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="Home.html">Home</a>
+                    <a class="nav-link text-light" href="../home.html">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-light dropdown-toggle" href="#" id="programsDropdown" role="button">
+                    <a class="nav-link text-light dropdown-toggle current-page" href="#" id="programsDropdown" role="button">
                         Our Programs
                     </a>
                     <ul class="dropdown-menu bg-dark border-0" aria-labelledby="programsDropdown">
-                        <li><a class="dropdown-item text-light" href="#">School of Computing</a></li>
-                        <li><a class="dropdown-item text-light" href="#">School of Business & Liberal Arts</a></li>
-                        <li><a class="dropdown-item text-light" href="#">School of Design & Arts</a></li>
-                        <li><a class="dropdown-item text-light" href="#">Senior High School</a></li>
+                        <li><a class="dropdown-item text-light" href="SOC.html">School of Computing</a></li>
+                        <li><a class="dropdown-item text-light" href="SBLA.html">School of Business & Liberal Arts</a></li>
+                        <li><a class="dropdown-item text-light" href="SDA.html">School of Design & Arts</a></li>
+                        <li><a class="dropdown-item text-light" href="SHS.html">Senior High School</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="Gallery.html">Gallery</a>
+                    <a class="nav-link text-light" href="../Gallery.html">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="Video_archive.html">Video Archive</a>
+                    <a class="nav-link text-light" href="../Video_archive.html">Video Archive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light current-page" href="School_tour.html">School Tour</a>
+                    <a class="nav-link text-light" href="../School_tour.html">School Tour</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="About.html">About us</a>
+                    <a class="nav-link text-light" href="../About.html">About us</a>
                 </li>
+                
                 <li class="nav-item d-lg-none mt-3">
                     <a href="#" class="btn btn-white w-100">Apply Now</a>
                 </li>
@@ -63,69 +64,28 @@
 
 
 <main>
-    <!-- Main Content -->
-    <div class="container my-5">
-        <h1 class="text-center text-white f-crisis mb-5">VIRTUAL SCHOOL TOUR</h1>
-        
-        <div class="row">
-            <!-- Floor Selection -->
-            <div class="col-2 floor-column p-4" id="floorSelection">
-                <label>UP<input type="radio" name="floor" value="UP"> </label><br>
-                <label>LP<input type="radio" name="floor" value="LP"> </label><br>
-                <label>12th Floor<input type="radio" name="floor" value="12th"> </label><br>
-                <label>10th Floor<input type="radio" name="floor" value="10th"> </label><br>
-                <label>9th Floor<input type="radio" name="floor" value="9th"> </label><br>
-                <label>8th Floor<input type="radio" name="floor" value="8th"> </label><br>
-                <label>7th Floor<input type="radio" name="floor" value="7th"> </label><br>
-                <label>6th Floor<input type="radio" name="floor" value="6th"> </label><br>
-                <label>5th Floor<input type="radio" name="floor" value="5th"> </label><br>
-                <label>Mezzanine<input type="radio" name="floor" value="m"> </label><br>
-                <label>Ground Floor<input type="radio" name="floor" value="gf" checked> </label><br>
+    <div class="container my-5 p-4 text-center">
+         <div class="container programs-content-container position-relative p-lg-0 p-lg-3">
+            <div class="position-absolute z-3 top-50 start-50 translate-middle text-white text-center fw-lighter w-100 responsive-header">
+                <p class="mb-0 fw-bold text-soc f-crisis ls-3 mb-4 department-header">SCHOOL OF COMPUTING</p>
+                <p class="fs-5 fw-light px-5 mx-5 department-description">Discover the future of tech at iACADEMY’s School of Computing (SOC)!
+                    We equip students with cutting-edge skills through VR learning, diverse game engines, secure development, 
+                    and emerging technologies. With hands-on industry collaborations and state-of-the-art facilities, SOC prepares you for success in 
+                    game, software, and web development. Step into a world of innovation and gain a competitive edge in the tech industry!
+                </p>
             </div>
-    
-            <!-- 360 View -->
-            <div class="col-10 p-0" id="floorView">
-                <iframe id="tourFrame" 
-                    src="https://momento360.com/e/u/0f9460c3965b4dc5a518b21f26081931"
-                    width="100%" height="100%" frameborder="0" allowfullscreen>
-                </iframe>
-            </div>
+            <div class="soc-image-container w-100 h-100 opacity-50" style="border-radius: 25px;"></div>
         </div>
-    
-        <!-- Thumbnails -->
-        <div class="row mt-4" id="thumbnailsContainer">
-            <div class="col-3">
-                <img src="image_assets/school_tour/GL.png" alt="Gaming Lounge" class="img-fluid rounded clickable-thumbnail"
-                    data-url="https://momento360.com/e/u/0f9460c3965b4dc5a518b21f26081931"
-                    data-name="Gaming Lounge"
-                    data-location="Ground Floor"
-                    data-description="A gaming lounge in a school provides students with a space to unwind, socialize, and enjoy games in a structured and positive environment.">
-            </div>
-            <div class="col-3">
-                <img src="image_assets/school_tour/CN.png" alt="Clinic" class="img-fluid rounded clickable-thumbnail"
-                    data-url="https://momento360.com/e/u/6a8fcafbf9e04ed2a96ba1d33180e6f4"
-                    data-name="Clinic"
-                    data-location="Ground Floor"
-                    data-description="The school clinic offers first aid and medical assistance to students, ensuring their health and safety throughout the day.">
-            </div>
-        </div>
-    
+
         <!-- Spacer -->
-        <div class="container" style="height: 200px;"></div>
-    
-        <!-- Dynamic Text -->
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <h1 id="tourTitle" class="text-white text-center text-uppercase"></h1>
-            <h2 id="tourLocation" class="text-soc mb-4 text-center"></h2>
-            <p id="tourDescription" class="text-white text-center" style="max-width: 800px;"></p>
-        </div>
-    
-        <!-- Spacer -->
-        <div class="container" style="height: 200px;"></div>
-    </div>
+        <div class="container" style="height: 150px;"></div>
+
+        <div id="programs-container"></div>
     
 
-   
+        <!-- Spacer -->
+        <div class="container" style="height: 40px;"></div>
+    </div>
 </main>
 
 
@@ -134,7 +94,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-lg-0 mb-5 text-center">
-                <img src="image_assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
+                <img src="../../image_assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
                 <div class="mb-3">
                     <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
                     <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
@@ -183,8 +143,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="js/tour.js"></script>
-<script src="js/global.js"></script>
+<script src="../../js/programs/soc.js"></script>
+<script src="../../js/global.js"></script>
 
 </body>
 </html>
