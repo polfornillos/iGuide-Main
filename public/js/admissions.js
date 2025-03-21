@@ -141,28 +141,186 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("submitAdmissionForm").addEventListener("click", async function (event) {
         event.preventDefault();
 
+        // Reset previous error styles
+        document.querySelectorAll(".error-message").forEach(el => el.remove());
+        document.querySelectorAll(".form-control, .form-select").forEach(el => el.style.border = "");
+        document.querySelectorAll(".radio-box").forEach(el => el.classList.remove("radio-box-error"));
+
         let formData = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            emailAddress: document.getElementById("emailAddress").value,
-            mobileNumber: document.getElementById("mobileNumber").value,
-            firstChoice: document.getElementById("firstChoice").value,
-            applicantType: document.querySelector("input[name='applicant_type']:checked")?.value,
+            // Basic Information
+            firstName: document.getElementById("firstName").value.trim(),
+            middleName: document.getElementById("middleName").value.trim(),
+            lastName: document.getElementById("lastName").value.trim(),
+            suffix: document.getElementById("suffix").value.trim(),
             dateOfBirth: document.getElementById("dateOfBirth").value,
+            placeOfBirth: document.getElementById("placeOfBirth").value.trim(),
             gender: document.getElementById("gender").value,
-            citizenship: document.getElementById("citizenship").value,
-            address: document.getElementById("address").value,
-            city: document.getElementById("city").value,
+            citizenship: document.getElementById("citizenship").value.trim(),
+
+            // Contact Information
+            emailAddress: document.getElementById("emailAddress").value.trim(),
+            confirmEmailAddress: document.getElementById("confirmEmailAddress").value.trim(),
+            mobileNumber: document.getElementById("mobileNumber").value.trim(),
+            confirmMobileNumber: document.getElementById("confirmMobileNumber").value.trim(),
+
+            // Address
+            address: document.getElementById("address").value.trim(),
+            barangay: document.getElementById("barangay").value.trim(),
+            city: document.getElementById("city").value.trim(),
             country: document.getElementById("country").value,
-            motherName: document.getElementById("motherName").value,
-            fatherName: document.getElementById("fatherName").value,
-            lastSchool: document.getElementById("lastSchool").value,
-            programStrand: document.getElementById("programStrand").value,
+            stateProvince: document.getElementById("stateProvince").value.trim(),
+
+            // Parent Information
+            motherName: document.getElementById("motherName").value.trim(),
+            motherOccupation: document.getElementById("motherOccupation").value.trim(),
+            motherEmail: document.getElementById("motherEmail").value.trim(),
+            motherMobile: document.getElementById("motherMobile").value.trim(),
+
+            fatherName: document.getElementById("fatherName").value.trim(),
+            fatherOccupation: document.getElementById("fatherOccupation").value.trim(),
+            fatherEmail: document.getElementById("fatherEmail").value.trim(),
+            fatherMobile: document.getElementById("fatherMobile").value.trim(),
+
+            guardianName: document.getElementById("guardianName").value.trim(),
+            guardianOccupation: document.getElementById("guardianOccupation").value.trim(),
+            guardianEmail: document.getElementById("guardianEmail").value.trim(),
+            guardianMobile: document.getElementById("guardianMobile").value.trim(),
+
+            // Educational Background
+            lastSchool: document.getElementById("lastSchool").value.trim(),
+            educationalCity: document.getElementById("educationalCity").value.trim(),
+            educationalState: document.getElementById("educationalState").value.trim(),
+            educationalCountry: document.getElementById("educationalCountry").value,
+            gradeYearLevel: document.getElementById("gradeYearLevel").value.trim(),
+            programStrand: document.getElementById("programStrand").value.trim(),
+            lrn: document.getElementById("lrn").value.trim(),
+
+            // Additional Information
             goodMoral: document.querySelector("input[name='goodMoral']:checked")?.value,
             illegalActivity: document.querySelector("input[name='illegalActivity']:checked")?.value,
-            healthConcerns: document.getElementById("healthConcerns").value,
-            referralSource: document.querySelector("input[name='referralSource']:checked")?.value,
+
+            // Health Conditions
+            hospitalized: document.querySelector("input[name='hospitalized']:checked")?.value,
+            healthConcerns: document.getElementById("healthConcerns").value.trim(),
+            healthIssues: Array.from(document.querySelectorAll("input[name='healthIssues']:checked")).map(el => el.value),
+            otherHealthDetails: document.getElementById("otherHealthDetails").value.trim(),
+
+
+            // Referral Source
+            referralSource: Array.from(document.querySelectorAll("input[name='referralSource']:checked")).map(el => el.value).join(", "),
+
+            // Term 
+            termSelection: document.getElementById("termSelection").value,
+            applicantType: document.querySelector("input[name='applicant_type']:checked")?.value,
+            firstChoice: document.getElementById("firstChoice").value,
+            secondChoice: document.getElementById("secondChoice").value,
+            thirdChoice: document.getElementById("thirdChoice").value
         };
+
+        // Validate Required Fields
+        let requiredFields = [
+            "firstName", "lastName", "dateOfBirth", "placeOfBirth", "gender", "citizenship", "address", "city", "country",
+            "emailAddress", "confirmEmailAddress", "mobileNumber", "confirmMobileNumber", "barangay", "stateProvince",
+            "motherName", "motherOccupation", "motherEmail", "motherMobile", "fatherName", "fatherOccupation", "fatherEmail", "fatherMobile",
+            "guardianName", "guardianOccupation", "guardianEmail", "guardianMobile", "lastSchool", "educationalCity", "educationalState", "gradeYearLevel",
+            "programStrand", "termSelection", "firstChoice", "secondChoice", "thirdChoice","healthConcerns"
+        ];
+
+        let missingFields = [];
+
+         // Validate if Confirm Email Matches
+         if (formData.emailAddress !== formData.confirmEmailAddress) {
+            missingFields.push("confirmEmailAddress");
+            document.getElementById("confirmEmailAddress").style.border = "2px solid red";
+            Swal.fire({
+                icon: "error",
+                title: "Email Mismatch",
+                text: "Your confirmed email address does not match your primary email.",
+                confirmButtonColor: "#dc3545",
+            });
+            return;
+        }
+
+        // Validate if Confirm Mobile Matches
+        if (formData.mobileNumber !== formData.confirmMobileNumber) {
+            missingFields.push("confirmMobileNumber");
+            document.getElementById("confirmMobileNumber").style.border = "2px solid red";
+            Swal.fire({
+                icon: "error",
+                title: "Mobile Number Mismatch",
+                text: "Your confirmed mobile number does not match your primary mobile number.",
+                confirmButtonColor: "#dc3545",
+            });
+            return;
+        }
+
+        // Validate sections with radio boxes
+        document.querySelectorAll(".radio-box").forEach(radioBox => {
+            let radioInputs = radioBox.querySelectorAll("input[type='radio']");
+            let isChecked = Array.from(radioInputs).some(input => input.checked);
+        
+            if (!isChecked) {
+                missingFields.push(radioBox);
+                radioBox.classList.add("radio-box-error");
+            }
+        });
+
+        // Validate input fields
+        requiredFields.forEach(id => {
+            let input = document.getElementById(id);
+            if (!formData[id] || formData[id] === "null" || formData[id] === "undefined") {
+                missingFields.push(id);
+                input.style.border = "1px solid red";
+            }
+        });
+ 
+        // Validate Health Concerns (Textbox must not be empty)
+        if (!formData.healthConcerns) {
+            missingFields.push("healthConcerns");
+            document.getElementById("healthConcerns").style.border = "1px solid red";
+        }
+
+        // Validate Health Issues (At least one must be checked)
+        let healthIssuesChecked = document.querySelectorAll("input[name='healthIssues']:checked").length > 0;
+        let healthIssuesContainer = document.querySelector("input[name='healthIssues']")?.closest(".shadow");
+
+        if (!healthIssuesChecked) {
+            missingFields.push("healthIssues");
+            if (healthIssuesContainer) {
+                healthIssuesContainer.classList.add("radio-box-error"); 
+            }
+        }
+
+        // Validate "Others" Health Details (Must be filled if "Others" is checked)
+        let otherHealthChecked = document.getElementById("otherHealth").checked;
+        let otherHealthDetails = document.getElementById("otherHealthDetails").value.trim();
+
+        if (otherHealthChecked && otherHealthDetails === "") {
+            missingFields.push("otherHealthDetails");
+            document.getElementById("otherHealthDetails").style.border = "1px solid red";
+        }
+
+        // Validate Referral Source (At least one must be checked)
+        let referralChecked = document.querySelectorAll("input[name='referralSource']:checked").length > 0;
+        let referralContainer = document.querySelector("input[name='referralSource']")?.closest(".shadow"); 
+
+        if (!referralChecked) {
+            missingFields.push("referralSource");
+            if (referralContainer) {
+                referralContainer.classList.add("radio-box-error"); 
+            }
+        }
+
+        if (missingFields.length > 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Missing Required Fields",
+                text: "Please fill in all required fields before submitting.",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#6c757d",
+            });
+            return;
+        }
 
         try {
             let response = await fetch("http://localhost:5001/send-email", {
@@ -173,7 +331,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let result = await response.json();
             if (response.ok) {
-                Swal.fire("Success!", "Your application has been submitted!", "success");
+                Swal.fire({
+                    icon: "success",
+                    title: "Success!",
+                    text: "Your application has been submitted!",
+                    confirmButtonColor: "#28a745",
+                }).then(() => {
+                    location.reload(); 
+                });
             } else {
                 Swal.fire("Error!", result.message, "error");
             }
@@ -182,4 +347,71 @@ document.addEventListener("DOMContentLoaded", function () {
             Swal.fire("Error", "Something went wrong. Try again later.", "error");
         }
     });
+
+    // Reset border color when typing/selecting an option
+    document.querySelectorAll(".form-control, .form-select").forEach(input => {
+        input.addEventListener("input", function () {
+            this.style.border = "";
+        });
+
+        input.addEventListener("change", function () {
+            this.style.border = "";
+        });
+    });
+
+    // Reset radio button error when selecting an option
+    document.querySelectorAll("input[name='applicant_type']").forEach(input => {
+        input.addEventListener("change", function () {
+            document.querySelectorAll("input[name='applicant_type']").forEach(el => el.parentElement.style.border = "");
+        });
+    });
+
+    // Remove red border when a radio button is selected
+    document.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", function () {
+            this.closest(".radio-box").classList.remove("radio-box-error");
+        });
+    });
+
+    // Remove red border when typing/selecting checkboxes
+    document.querySelectorAll(".form-control, input[type='checkbox']").forEach(input => {
+        input.addEventListener("input", function () {
+            this.style.border = "";
+        });
+
+        input.addEventListener("change", function () {
+            this.closest(".shadow")?.classList.remove("radio-box-error");
+        });
+    });
+
+    // Disable "Others" text field unless "Others" checkbox is selected
+    document.getElementById("otherHealth").addEventListener("change", function () {
+        document.getElementById("otherHealthDetails").disabled = !this.checked;
+        if (!this.checked) {
+            document.getElementById("otherHealthDetails").value = ""; // Clear input when unchecked
+        }
+    });
 });
+
+//Function to Sync Country Code Selection
+document.addEventListener("DOMContentLoaded", function () {
+    const countryCodeMobile = document.getElementById("countryCodeMobile");
+    const countryCodeConfirm = document.getElementById("countryCodeConfirm");
+
+    // Function to sync and disable the confirm country code
+    function syncCountryCode(source, target) {
+        target.value = source.value;
+        target.disabled = true;
+    }
+
+    countryCodeMobile.addEventListener("change", function () {
+        syncCountryCode(this, countryCodeConfirm);
+    });
+
+    countryCodeConfirm.addEventListener("change", function () {
+        syncCountryCode(this, countryCodeMobile);
+    });
+
+    syncCountryCode(countryCodeMobile, countryCodeConfirm);
+});
+

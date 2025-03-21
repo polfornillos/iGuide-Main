@@ -33,20 +33,49 @@ app.post("/send-email", async (req, res) => {
         to: "fornillospaul@gmail.com", // Default recipient
         subject: `New Admission Form Submission: ${formData.firstName} ${formData.lastName}`,
         html: `
-            <h2>New Application Received</h2>
-            <p><b>Name:</b> ${formData.firstName} ${formData.lastName}</p>
-            <p><b>Email:</b> ${formData.emailAddress}</p>
-            <p><b>Phone:</b> ${formData.mobileNumber}</p>
-            <p><b>Applying For:</b> ${formData.firstChoice || "Not Provided"}</p>
-            <p><b>Applicant Type:</b> ${formData.applicantType || "Not Provided"}</p>
-            <p><b>Birthdate:</b> ${formData.dateOfBirth}</p>
+            <h3>Application Details</h3>
+            <p><b>Applicant Type:</b> ${formData.applicantType}</p>
+            <p><b>Term Selection:</b> ${formData.termSelection}</p>
+            <p><b>First Choice:</b> ${formData.firstChoice}</p>
+            <p><b>Second Choice:</b> ${formData.secondChoice}</p>
+            <p><b>Third Choice:</b> ${formData.thirdChoice}</p>
+
+            <h3>Basic Information</h3>
+            <p><b>Name:</b> ${formData.firstName} ${formData.middleName || ""} ${formData.lastName} ${formData.suffix || ""}</p>
+            <p><b>Date of Birth:</b> ${formData.dateOfBirth}</p>
+            <p><b>Place of Birth:</b> ${formData.placeOfBirth}</p>
             <p><b>Gender:</b> ${formData.gender}</p>
             <p><b>Citizenship:</b> ${formData.citizenship}</p>
-            <p><b>Address:</b> ${formData.address}, ${formData.city}, ${formData.country}</p>
-            <p><b>Parent Details:</b> ${formData.motherName} (Mother), ${formData.fatherName} (Father)</p>
-            <p><b>Educational Background:</b> ${formData.lastSchool} - ${formData.programStrand}</p>
-            <p><b>Other Info:</b> Good Moral: ${formData.goodMoral}, Illegal Activity: ${formData.illegalActivity}</p>
-            <p><b>Health Issues:</b> ${formData.healthConcerns || "None"}</p>
+
+            <h3>Contact Information</h3>
+            <p><b>Email:</b> ${formData.emailAddress}</p>
+            <p><b>Mobile Number:</b> ${formData.mobileNumber}</p>
+
+            <h3>Address</h3>
+            <p><b>Complete Address:</b> ${formData.address}, ${formData.barangay}, ${formData.city}, ${formData.stateProvince}, ${formData.country}</p>
+
+            <h3>Parent/Guardian Information</h3>
+            <p><b>Mother:</b> ${formData.motherName} (${formData.motherOccupation}) - ${formData.motherEmail} | ${formData.motherMobile}</p>
+            <p><b>Father:</b> ${formData.fatherName} (${formData.fatherOccupation}) - ${formData.fatherEmail} | ${formData.fatherMobile}</p>
+            <p><b>Guardian:</b> ${formData.guardianName} (${formData.guardianOccupation}) - ${formData.guardianEmail} | ${formData.guardianMobile}</p>
+
+            <h3>Educational Background</h3>
+            <p><b>Last School Attended:</b> ${formData.lastSchool}, ${formData.educationalCity}, ${formData.educationalState}, ${formData.educationalCountry}</p>
+            <p><b>Grade/Year Level:</b> ${formData.gradeYearLevel}</p>
+            <p><b>Program/Strand:</b> ${formData.programStrand}</p>
+            <p><b>LRN (if applicable):</b> ${formData.lrn || "Not Provided"}</p>
+
+            <h3>Additional Information</h3>
+            <p><b>Good Moral Standing:</b> ${formData.goodMoral}</p>
+            <p><b>Involved in Illegal Activities:</b> ${formData.illegalActivity}</p>
+
+            <h3>Health Information</h3>
+            <p><b>Hospitalized Before:</b> ${formData.hospitalized}</p>
+            <p><b>Health Concerns:</b> ${formData.healthConcerns || "None"}</p>
+            <p><b>Health Issues:</b> ${formData.healthIssues?.join(", ") || "None"}</p>
+            <p><b>Other Health Details:</b> ${formData.otherHealthDetails || "None"}</p>
+
+            <h3>Referral Information</h3>
             <p><b>Referral Source:</b> ${formData.referralSource || "Not Provided"}</p>
         `,
     };

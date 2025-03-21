@@ -96,33 +96,34 @@
                 <!-- Applicant Type -->
                 <div class="col-12 col-md-4">
                     <label class="fw-bold d-block mb-2">APPLICANT TYPE (SELECT ONE) <span class="text-danger">*</span></label>
-                    <div class="p-4 shadow rounded d-flex flex-column justify-content-between" style="border-top: 5px solid #10326F; min-height: 300px;">
+                    <div class="p-4 shadow rounded d-flex flex-column justify-content-between radio-box" style="border-top: 5px solid #10326F; min-height: 300px;">
                         <div>
                             <label class="fw-bold d-block mb-1">FRESHMAN</label>
                             <div>
-                                <input type="radio" name="applicant_type" value="freshman_iacademy"> iACADEMY SHS GRADUATE
+                                <input type="radio" name="applicant_type" value="iAcademy SHS Graduate"> iACADEMY SHS GRADUATE
                             </div>
                             <div>
-                                <input type="radio" name="applicant_type" value="freshman_other"> GRADUATE FROM OTHER SHS
+                                <input type="radio" name="applicant_type" value="Graduate from other SHS"> GRADUATE FROM OTHER SHS
                             </div>
                         </div>
                         <div class="mt-3">
                             <label class="fw-bold d-block mb-1">2ND DEGREE</label>
                             <div>
-                                <input type="radio" name="applicant_type" value="degree_iacademy"> iACADEMY COLLEGE GRADUATE
+                                <input type="radio" name="applicant_type" value="iAcademy College Graduate"> iACADEMY COLLEGE GRADUATE
                             </div>
                             <div>
-                                <input type="radio" name="applicant_type" value="degree_other"> GRADUATE FROM OTHER COLLEGE
+                                <input type="radio" name="applicant_type" value="Degree from other college"> GRADUATE FROM OTHER COLLEGE
                             </div>
                         </div>
                         <div class="mt-3">
                             <label class="fw-bold d-block mb-1">OTHER</label>
                             <div>
-                                <input type="radio" name="applicant_type" value="transferee"> TRANSFEREE
+                                <input type="radio" name="applicant_type" value="Transferee"> TRANSFEREE
                             </div>
                         </div>
                     </div>
                 </div>
+                
 
                 <!-- Applying For -->
                 <div class="col-12 col-md-8 pe-0 ">
@@ -130,15 +131,15 @@
                     <div class="p-3 shadow rounded d-flex flex-column justify-content-between" style="border-top: 5px solid #10326F; min-height: 300px;">
                         <div>
                             <label class="d-block fw-normal">First Choice:</label>
-                            <select class="form-control text-center" id="firstChoice" placeholder="--Select Option--"></select>
+                            <select class="form-control text-center" id="firstChoice" placeholder="--Select Option--" required></select>
                         </div>
                         <div class="mt-3">
                             <label class="d-block fw-normal">Second Choice:</label>
-                            <select class="form-control text-center" id="secondChoice"></select>
+                            <select class="form-control text-center" id="secondChoice" required></select>
                         </div>
                         <div class="mt-3">
                             <label class="d-block fw-normal">Third Choice:</label>
-                            <select class="form-control text-center" id="thirdChoice"></select>
+                            <select class="form-control text-center" id="thirdChoice" required></select>
                         </div>
                     </div>
                 </div>
@@ -260,7 +261,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold">State/Province <span class="text-danger">*</span></label>
-                                <input id="address" type="text" class="form-control" placeholder="Enter State/Province" required>
+                                <input id="stateProvince" type="text" class="form-control" placeholder="Enter State/Province" required>
                             </div>
                         </div>
                     </div>
@@ -281,15 +282,15 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="motherOccupation">Mother's Occupation <span class="text-danger">*</span></label>
-                                <input type="text" id="motherOccupation" class="form-control" placeholder="Enter Mother's Occupation">
+                                <input type="text" id="motherOccupation" class="form-control" placeholder="Enter Mother's Occupation" required >
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="motherEmail">Mother's Email Address <span class="text-danger">*</span></label>
-                                <input type="email" id="motherEmail" class="form-control" placeholder="Enter Mother's Email Address">
+                                <input type="email" id="motherEmail" class="form-control" placeholder="Enter Mother's Email Address" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="motherMobile">Mother's Mobile Number <span class="text-danger">*</span></label>
-                                <input type="text" id="motherMobile" class="form-control" placeholder="Enter Mother's Mobile Number">
+                                <input type="text" id="motherMobile" class="form-control" placeholder="Enter Mother's Mobile Number" required>
                             </div>
                         </div>
                     </div>
@@ -305,15 +306,15 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="d-block fw-bold" for="fatherOccupation">Father's Occupation <span class="text-danger">*</span></label>
-                                <input type="text" id="fatherOccupation" class="form-control" placeholder="Enter Father's Occupation">
+                                <input type="text" id="fatherOccupation" class="form-control" placeholder="Enter Father's Occupation" required>
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="d-block fw-bold" for="fatherEmail">Father's Email Address <span class="text-danger">*</span></label>
-                                <input type="email" id="fatherEmail" class="form-control" placeholder="Enter Father's Email Address">
+                                <input type="email" id="fatherEmail" class="form-control" placeholder="Enter Father's Email Address" required>
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="d-block fw-bold" for="fatherMobile">Father's Mobile Number <span class="text-danger">*</span></label>
-                                <input type="text" id="fatherMobile" class="form-control" placeholder="Enter Father's Mobile Number">
+                                <input type="text" id="fatherMobile" class="form-control" placeholder="Enter Father's Mobile Number" required>
                             </div>
                         </div>
                     </div>
@@ -329,15 +330,15 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="guardianOccupation">Guardian's Occupation <span class="text-danger">*</span></label>
-                                <input type="text" id="guardianOccupation" class="form-control" placeholder="Enter Guardian's Occupation">
+                                <input type="text" id="guardianOccupation" class="form-control" placeholder="Enter Guardian's Occupation" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="guardianEmail">Guardian's Email Address <span class="text-danger">*</span></label>
-                                <input type="email" id="guardianEmail" class="form-control" placeholder="Enter Guardian's Email Address">
+                                <input type="email" id="guardianEmail" class="form-control" placeholder="Enter Guardian's Email Address" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="d-block fw-bold" for="guardianMobile">Guardian's Mobile Number <span class="text-danger">*</span></label>
-                                <input type="text" id="guardianMobile" class="form-control" placeholder="Enter Guardian's Mobile Number">
+                                <input type="text" id="guardianMobile" class="form-control" placeholder="Enter Guardian's Mobile Number" required>
                             </div>
                         </div>
                     </div>
@@ -390,7 +391,7 @@
 
                 <!-- Good Moral Standing -->
                 <div class="col-12 col-md-6">
-                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                    <div class="p-4 shadow rounded radio-box" style="border-top: 5px solid #10326F;">
                         <label class="fw-bold d-block mb-2">Do you hold good moral standing in your previous school? <span class="text-danger">*</span></label>
 
                         <div>
@@ -406,7 +407,7 @@
 
                 <!-- Illegal Activities -->
                 <div class="col-12 col-md-6">
-                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                    <div class="p-4 shadow rounded radio-box" style="border-top: 5px solid #10326F;">
                         <label class="fw-bold d-block mb-2">Have you been involved in any illegal activities? <span class="text-danger">*</span></label>
 
                         <div>
@@ -427,7 +428,7 @@
 
                 <div class="col-12 col-md-6 d-flex flex-column justify-content-between" style="min-height: 300px;">
                     <!-- Hospitalization -->
-                    <div class="p-4 shadow rounded mb-3" style="border-top: 5px solid #10326F;">
+                    <div class="p-4 shadow rounded mb-3 radio-box" style="border-top: 5px solid #10326F;">
                         <label class="fw-bold d-block mb-2">Have you been hospitalized before? <span class="text-danger">*</span></label>
                         <div>
                             <input type="radio" id="hospitalizedYes" name="hospitalized" value="yes" required>
@@ -441,7 +442,7 @@
 
                     <!-- Other Health Concerns -->
                     <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
-                        <label for="healthConcerns" class="fw-bold d-block mb-2">Other health concerns/conditions (Type "none" if you do not have any)</label>
+                        <label for="healthConcerns" class="fw-bold d-block mb-2">Other health concerns/conditions (Type "none" if you do not have any) <span class="text-danger">*</span></label>
                         <input type="text" id="healthConcerns" name="healthConcerns" class="form-control" required>
                     </div>
                 </div>
@@ -468,7 +469,7 @@
                         <div>
                             <input type="checkbox" id="otherHealth" name="healthIssues" value="others">
                             <label for="otherHealth">Others (Please specify):</label>
-                            <input type="text" id="otherHealthDetails" name="otherHealthDetails" class="form-control mt-2">
+                            <input type="text" id="otherHealthDetails" name="otherHealthDetails" class="form-control mt-2" disabled>
                         </div>
                     </div>
                 </div>

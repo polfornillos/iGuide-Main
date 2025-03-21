@@ -683,6 +683,14 @@ tbody td img{
     font-size: 60px;
 }
 
+.radio-box {
+    transition: border 0.1s ease-in-out; 
+}
+
+.radio-box-error {
+    border: 1px solid red !important;
+}
+
 @media (max-width: 1200px) { /* Large devices (laptops, desktops) */
     .responsive-header {
         font-size: 40px;
