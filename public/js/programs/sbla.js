@@ -14,14 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const programHTML = `
                     <div class="row align-items-center mb-5">
-                        ${isEven ? `
-                            <div class="col-md-6">
-                                <img src="${program.cover_image}" class="img-fluid w-100 rounded-4" alt="${program.program_name}" style="height: 900px; object-fit: cover;">
-                            </div>
-                            <div class="col-md-6 text-white d-flex flex-column" style="gap:40px">
-                        ` : `
-                            <div class="col-md-6 text-white d-flex flex-column" style="gap:40px">
-                        `}
+                        <!-- Image First on Even Rows, Second on Odd Rows -->
+                        <div class="col-md-6 ${isEven ? 'order-md-1' : 'order-md-2'}">
+                            <img src="${program.cover_image}" class="img-fluid w-100 rounded-4 program-cover-image" alt="${program.program_name}">
+                        </div>
+                        
+                        <!-- Text First on Odd Rows, Second on Even Rows -->
+                        <div class="col-md-6 text-white d-flex flex-column ${isEven ? 'order-md-2' : 'order-md-1'} mt-5" style="gap:40px">
                             <div class="mb-4 text-start">
                                 <h4 class="fw-light mb-1 text-sbla">${program.program_name}</h4>
                                 <h1 class="fw-bold mb-5">${program.program_specialization}</h1>
@@ -33,11 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p><strong>Careers:</strong> ${program.careers}</p>
                             </div>
                         </div>
-                        ${!isEven ? `
-                            <div class="col-md-6">
-                                <img src="${program.cover_image}" class="img-fluid w-100 rounded-4" alt="${program.program_name}" style="height: 900px; object-fit: cover;">
-                            </div>
-                        ` : ''}
                     </div>
 
                     <!-- Spacer -->

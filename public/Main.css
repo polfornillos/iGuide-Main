@@ -638,6 +638,10 @@ tbody td img{
     background-size: cover;
 }
 
+.program-cover-image{
+    height: 800px; 
+    object-fit: cover;
+}
 
 .department-header{
     font-size: 60px;
@@ -721,6 +725,8 @@ tbody td img{
     .department-description{
         display: none;
     }
+
+    
 }
 
 @media (max-width: 576px) { /* Extra small devices (smaller phones) */
@@ -735,5 +741,10 @@ tbody td img{
 
     .department-header{
         font-size: 20px;
+    }
+
+    .program-cover-image{
+        height: 500px; 
+        object-fit: cover;
     }
 }
