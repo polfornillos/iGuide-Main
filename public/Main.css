@@ -74,10 +74,22 @@ tbody td img{
     background-color: #BBBBBB !important;
 }
 
-.btn-white:active, .btn-transparent:active, .see-more:active, #seeMoreBtn:active {
+.btn-white:active, .btn-transparent:active, .see-more:active, #seeMoreBtn:active, .btn-iac:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;
 }
+
+.btn-iac{
+    background-color: #10326F;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-iac:hover, .btn-iac:active {
+    background-color: #0c275a !important;
+    color: white;
+}
+
 
 .btn-transparent{
     background: none;
@@ -95,7 +107,7 @@ tbody td img{
 }
 
 /* Themed Font colors */
-.text-iac{color: #10326F;}
+.text-iac{color: #10326F !important;}
 .text-sda{color: #21bdff;}
 .text-shs{color: #85DFFF;}
 .text-soc{color: #FFE102 !important;}
@@ -130,6 +142,23 @@ tbody td img{
     width: 100%; /* Expands underline on hover */
 }
 
+/* Animated underline effect (excluding dropdown links) */
+.admission-navbar .navbar-nav .nav-link:not(.dropdown-toggle)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #10326F;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.admission-navbar .navbar-nav .nav-link:not(.dropdown-toggle):hover::after {
+    width: 100%; /* Expands underline on hover */
+}
+
 /* Changes Navbar toggler to white instead of the default black in mobile */
 .navbar-toggler {
     border-color: white; 
@@ -137,6 +166,10 @@ tbody td img{
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.admission-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* Dropdown Hover Effect */
@@ -147,7 +180,6 @@ tbody td img{
 
 /* Customize dropdown styles */
 .dropdown-menu {
-    background-color: #333;
     border-radius: 5px;
 }
 
@@ -157,7 +189,11 @@ tbody td img{
 }
 
 .dropdown-item:hover {
-    background-color: #555;
+    background-color: #e0e0e0;
+}
+
+.admission-navbar .dropdown-item:hover {
+    background-color: #0c275a;
 }
 
 .top-content-container{

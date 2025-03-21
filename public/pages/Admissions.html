@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../Main.css">
+</head>
+<body style="background: white;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg p-3 admission-navbar">
+    <div class="container d-flex align-items-center p-0 ">
+
+        <a class="navbar-brand pe-none" href="#">
+            <img src="../../image_assets/iac_logo.png" alt="Logo" height="40">
+        </a>
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ms-4 mt-5 mt-lg-0 text-iac" id="navbarNav">
+            <ul class="navbar-nav d-flex" style="gap: 20px;">
+                <li class="nav-item">
+                    <a class="nav-link text-iac" href="home.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-iac dropdown-toggle " href="#" id="programsDropdown" role="button">
+                        Our Programs
+                    </a>
+                    <ul class="dropdown-menu bg-iac border-0" aria-labelledby="programsDropdown">
+                        <li><a class="dropdown-item text-white" href="programs/SOC.html">School of Computing</a></li>
+                        <li><a class="dropdown-item text-white" href="programs/SBLA.html">School of Business & Liberal Arts</a></li>
+                        <li><a class="dropdown-item text-white" href="programs/SDA.html">School of Design & Arts</a></li>
+                        <li><a class="dropdown-item text-white" href="programs/SHS.html">Senior High School</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-iac" href="Gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-iac" href="Video_archive.html">Video Archive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-iac" href="School_tour.html">School Tour</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-iac" href="About.html">About us</a>
+                </li>
+                
+                <li class="nav-item d-lg-none mt-3">
+                    <a href="Admissions.html" class="btn btn-iac w-100">Apply Now</a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="Admissions.html" class="btn btn-iac ms-auto py-2 d-none d-lg-block">Apply Now</a>
+    </div>
+</nav>
+
+<main>
+    <!-- Spacer -->
+    <div class="container" style="height: 40px;"></div>
+
+    <div class="container mt-5 text-iac">
+        <form class="d-flex flex-column g-5">
+            <div class="row text-center">
+                <h1 class="fw-bold">iACADEMY APPLICATION FORM</h1>
+                <h1 class="fw-bold"><span id="campusName" class="text-danger">MAKATI</span> CAMPUS!</h1>
+                <p class="fw-medium mt-5">APPLICATION FORM</p>
+                <p class="fw-medium">
+                    Hello future Game Changers! Kindly fill out your information sheet. If you have any questions, <br>
+                    feel free to email us at <b>admissions@iacademy.edu.ph.</b>
+                </p>
+                <p class="fw-medium">
+                    Note: You are applying for <span id="campusNote" class="text-danger">iACADEMY Makati Campus</span>, 
+                    if you want to apply to iACADEMY Cebu <a id="changeCampus" class="text-iac" href="#">click here.</a>
+                </p>
+            </div>
+            
+            <!-- Select Term -->
+            <div class="row m-4 px-2">
+                <label class="fw-bold p-0 mb-2">SELECT TERM <span class="text-danger">*</span></label>
+                <select id="termSelection" class="form-control text-center" required>
+                    <option value="" disabled selected>--Select Option--</option>
+                    <option value="1ST SEM SY 2025-2026">1ST SEM SY 2025-2026</option>
+                </select>
+            </div>
+
+            <!-- Applicant Type -->
+            <div class="row m-4">
+                <!-- Applicant Type -->
+                <div class="col-12 col-md-4">
+                    <label class="fw-bold d-block mb-2">APPLICANT TYPE (SELECT ONE) <span class="text-danger">*</span></label>
+                    <div class="p-4 shadow rounded d-flex flex-column justify-content-between" style="border-top: 5px solid #10326F; min-height: 300px;">
+                        <div>
+                            <label class="fw-bold d-block mb-1">FRESHMAN</label>
+                            <div>
+                                <input type="radio" name="applicant_type" value="freshman_iacademy"> iACADEMY SHS GRADUATE
+                            </div>
+                            <div>
+                                <input type="radio" name="applicant_type" value="freshman_other"> GRADUATE FROM OTHER SHS
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <label class="fw-bold d-block mb-1">2ND DEGREE</label>
+                            <div>
+                                <input type="radio" name="applicant_type" value="degree_iacademy"> iACADEMY COLLEGE GRADUATE
+                            </div>
+                            <div>
+                                <input type="radio" name="applicant_type" value="degree_other"> GRADUATE FROM OTHER COLLEGE
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <label class="fw-bold d-block mb-1">OTHER</label>
+                            <div>
+                                <input type="radio" name="applicant_type" value="transferee"> TRANSFEREE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applying For -->
+                <div class="col-12 col-md-8 pe-0 ">
+                    <label class="fw-bold d-block mb-2 ">APPLICANT FOR <span class="text-danger">*</span></label>
+                    <div class="p-3 shadow rounded d-flex flex-column justify-content-between" style="border-top: 5px solid #10326F; min-height: 300px;">
+                        <div>
+                            <label class="d-block fw-normal">First Choice:</label>
+                            <select class="form-control text-center" id="firstChoice" placeholder="--Select Option--"></select>
+                        </div>
+                        <div class="mt-3">
+                            <label class="d-block fw-normal">Second Choice:</label>
+                            <select class="form-control text-center" id="secondChoice"></select>
+                        </div>
+                        <div class="mt-3">
+                            <label class="d-block fw-normal">Third Choice:</label>
+                            <select class="form-control text-center" id="thirdChoice"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
+            <!-- Basic Information -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">BASIC INFORMATION</div>
+            
+                <!-- Name Details -->
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3" style="border-top: 5px solid #10326F;">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">First Name <span class="text-danger">*</span></label>
+                                <input id="firstName" type="text" class="form-control" placeholder="Enter First Name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Middle Name</label>
+                                <input id="middleName" type="text" class="form-control" placeholder="Enter Middle Name">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Last Name <span class="text-danger">*</span></label>
+                                <input id="lastName" type="text" class="form-control" placeholder="Enter Last Name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Suffix</label>
+                                <input id="suffix" type="text" class="form-control" placeholder="Enter Suffix">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!-- Birth & Citizenship Details -->
+                <div class="col-12 pe-0">
+                    <div class="shadow rounded p-3 w-100">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Date of Birth <span class="text-danger">*</span></label>
+                                <input id="dateOfBirth" type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Place of Birth <span class="text-danger">*</span></label>
+                                <input id="placeOfBirth" type="text" class="form-control" placeholder="Enter Place of Birth" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Gender <span class="text-danger">*</span></label>
+                                <select id="gender" class="form-control" required>
+                                    <option value="" disabled selected>--Select Gender--</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Citizenship <span class="text-danger">*</span></label>
+                                <input id="citizenship" type="text" class="form-control" placeholder="Enter Citizenship" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">CONTACT INFORMATION</div>
+
+                <!-- Email & Mobile Details -->
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3" style="border-top: 5px solid #10326F;">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="d-block fw-bold">Email Address <span class="text-danger">*</span></label>
+                                <input id="emailAddress" type="email" class="form-control" placeholder="Enter Email Address" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="d-block fw-bold">Confirm Email Address <span class="text-danger">*</span></label>
+                                <input id="confirmEmailAddress" type="email" class="form-control" placeholder="Confirm Email Address" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="d-block fw-bold">Mobile Number <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <select id="countryCodeMobile" class="form-select" style="max-width: 120px;"></select>
+                                    <input id="mobileNumber" type="text" class="form-control" placeholder="Enter Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="d-block fw-bold">Confirm Mobile Number <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <select id="countryCodeConfirm" class="form-select" style="max-width: 120px;"></select>
+                                    <input id="confirmMobileNumber" type="text" class="form-control" placeholder="Confirm Mobile Number" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Details -->
+                <div class="col-12 pe-0">
+                    <div class="shadow rounded p-3 w-100">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Address <span class="text-danger">*</span></label>
+                                <input id="address" type="text" class="form-control" placeholder="Enter Address" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Barangay <span class="text-danger">*</span></label>
+                                <input id="barangay" type="text" class="form-control" placeholder="Enter Barangay" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">City <span class="text-danger">*</span></label>
+                                <input id="city" type="text" class="form-control" placeholder="Enter City" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">Country <span class="text-danger">*</span></label>
+                                <select id="country" class="form-select"></select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold">State/Province <span class="text-danger">*</span></label>
+                                <input id="address" type="text" class="form-control" placeholder="Enter State/Province" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent Information -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">PARENT INFORMATION</div>
+
+                <!-- Mother's Information (Top box with colored top) -->
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3" style="border-top: 5px solid #10326F;">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="motherName">Mother's Name <span class="text-danger">*</span></label>
+                                <input type="text" id="motherName" class="form-control" placeholder="Enter Mother's Name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="motherOccupation">Mother's Occupation <span class="text-danger">*</span></label>
+                                <input type="text" id="motherOccupation" class="form-control" placeholder="Enter Mother's Occupation">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="motherEmail">Mother's Email Address <span class="text-danger">*</span></label>
+                                <input type="email" id="motherEmail" class="form-control" placeholder="Enter Mother's Email Address">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="motherMobile">Mother's Mobile Number <span class="text-danger">*</span></label>
+                                <input type="text" id="motherMobile" class="form-control" placeholder="Enter Mother's Mobile Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Father's Information -->
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block fw-bold" for="fatherName">Father's Name <span class="text-danger">*</span></label>
+                                <input type="text" id="fatherName" class="form-control" placeholder="Enter Father's Name" required>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block fw-bold" for="fatherOccupation">Father's Occupation <span class="text-danger">*</span></label>
+                                <input type="text" id="fatherOccupation" class="form-control" placeholder="Enter Father's Occupation">
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block fw-bold" for="fatherEmail">Father's Email Address <span class="text-danger">*</span></label>
+                                <input type="email" id="fatherEmail" class="form-control" placeholder="Enter Father's Email Address">
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block fw-bold" for="fatherMobile">Father's Mobile Number <span class="text-danger">*</span></label>
+                                <input type="text" id="fatherMobile" class="form-control" placeholder="Enter Father's Mobile Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guardian's Information -->
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="guardianName">Guardian's Name <span class="text-danger">*</span></label>
+                                <input type="text" id="guardianName" class="form-control" placeholder="Enter Guardian's Name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="guardianOccupation">Guardian's Occupation <span class="text-danger">*</span></label>
+                                <input type="text" id="guardianOccupation" class="form-control" placeholder="Enter Guardian's Occupation">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="guardianEmail">Guardian's Email Address <span class="text-danger">*</span></label>
+                                <input type="email" id="guardianEmail" class="form-control" placeholder="Enter Guardian's Email Address">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="guardianMobile">Guardian's Mobile Number <span class="text-danger">*</span></label>
+                                <input type="text" id="guardianMobile" class="form-control" placeholder="Enter Guardian's Mobile Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Background -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">EDUCATIONAL BACKGROUND</div>
+
+                <div class="col-12 mb-3 pe-0">
+                    <div class="shadow rounded p-3" style="border-top: 5px solid #10326F;">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="lastSchool">Last School Attended <span class="text-danger">*</span></label>
+                                <input type="text" id="lastSchool" class="form-control" placeholder="Enter Last School Attended" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="educationalCity">City <span class="text-danger">*</span></label>
+                                <input type="text" id="educationalCity" class="form-control" placeholder="Enter City" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="educationalState">State/Province <span class="text-danger">*</span></label>
+                                <input type="text" id="educationalState" class="form-control" placeholder="Enter State/Province" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="educationalCountry">Country <span class="text-danger">*</span></label>
+                                <select id="educationalCountry" class="form-select" required></select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="gradeYearLevel">Grade/Year Level <span class="text-danger">*</span></label>
+                                <input type="text" id="gradeYearLevel" class="form-control" placeholder="Enter Grade/Year Level" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="programStrand">Program/Strand/Degree <span class="text-danger">*</span></label>
+                                <input type="text" id="programStrand" class="form-control" placeholder="Enter Program/Strand/Degree" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="d-block fw-bold" for="lrn">LRN (For Junior High School Applicants)</label>
+                                <input type="text" id="lrn" class="form-control" placeholder="Enter LRN (Optional)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">ADDITIONAL INFORMATION</div>
+
+                <!-- Good Moral Standing -->
+                <div class="col-12 col-md-6">
+                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                        <label class="fw-bold d-block mb-2">Do you hold good moral standing in your previous school? <span class="text-danger">*</span></label>
+
+                        <div>
+                            <input type="radio" id="goodMoralYes" name="goodMoral" value="yes" required>
+                            <label for="goodMoralYes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="goodMoralNo" name="goodMoral" value="no" required>
+                            <label for="goodMoralNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Illegal Activities -->
+                <div class="col-12 col-md-6">
+                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                        <label class="fw-bold d-block mb-2">Have you been involved in any illegal activities? <span class="text-danger">*</span></label>
+
+                        <div>
+                            <input type="radio" id="illegalYes" name="illegalActivity" value="yes" required>
+                            <label for="illegalYes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="illegalNo" name="illegalActivity" value="no" required>
+                            <label for="illegalNo">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Conditions -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">HEALTH CONDITIONS</div>
+
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-between" style="min-height: 300px;">
+                    <!-- Hospitalization -->
+                    <div class="p-4 shadow rounded mb-3" style="border-top: 5px solid #10326F;">
+                        <label class="fw-bold d-block mb-2">Have you been hospitalized before? <span class="text-danger">*</span></label>
+                        <div>
+                            <input type="radio" id="hospitalizedYes" name="hospitalized" value="yes" required>
+                            <label for="hospitalizedYes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="hospitalizedNo" name="hospitalized" value="no" required>
+                            <label for="hospitalizedNo">No</label>
+                        </div>
+                    </div>
+
+                    <!-- Other Health Concerns -->
+                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                        <label for="healthConcerns" class="fw-bold d-block mb-2">Other health concerns/conditions (Type "none" if you do not have any)</label>
+                        <input type="text" id="healthConcerns" name="healthConcerns" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6" style="min-height: 300px;">
+                    <div class="p-4 shadow rounded h-100" style="border-top: 5px solid #10326F;">
+                        <label class="fw-bold d-block mb-2">Do you have any of the following? (Check all that apply):</label>
+                        <div>
+                            <input type="checkbox" id="diabetes" name="healthIssues" value="diabetes">
+                            <label for="diabetes">Diabetes</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="allergies" name="healthIssues" value="allergies">
+                            <label for="allergies">Allergies</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="highBlood" name="healthIssues" value="high_blood">
+                            <label for="highBlood">High Blood Pressure</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="anemia" name="healthIssues" value="anemia">
+                            <label for="anemia">Anemia</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="otherHealth" name="healthIssues" value="others">
+                            <label for="otherHealth">Others (Please specify):</label>
+                            <input type="text" id="otherHealthDetails" name="otherHealthDetails" class="form-control mt-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How Did You Find Out About iACADEMY? -->
+            <div class="row m-4">
+                <div class="col-12 p-2 fw-bold">HOW DID YOU FIND OUT ABOUT iACADEMY?</div>
+
+                <div class="col-6">
+                    <div class="p-4 shadow rounded" style="border-top: 5px solid #10326F;">
+                        <label class="fw-bold d-block mb-2">Do you have any of the following? (Check all that apply):</label>
+                        <div>
+                            <input type="checkbox" id="google" name="referralSource" value="google">
+                            <label for="google">Google</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="facebook" name="referralSource" value="facebook">
+                            <label for="facebook">Facebook</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="instagram" name="referralSource" value="instagram">
+                            <label for="instagram">Instagram</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tiktok" name="referralSource" value="tiktok">
+                            <label for="tiktok">TikTok</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="news" name="referralSource" value="news">
+                            <label for="news">News</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="schoolFair" name="referralSource" value="school_fair">
+                            <label for="schoolFair">School Fair/Orientation</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="billboard" name="referralSource" value="billboard">
+                            <label for="billboard">Billboard</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="event" name="referralSource" value="event">
+                            <label for="event">Event</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="referral" name="referralSource" value="referral">
+                            <label for="referral">Referral</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spacer -->
+            <div class="container" style="height: 100px;"></div>
+
+            <p class="fw-medium text-center">iACADEMY shall retain in confidence all confidential information concerning and involving every student and the school.
+                <br><a class="text-iac" href="https://iacademy.edu.ph/privacypolicy.htm">https://iacademy.edu.ph/privacypolicy.htm</a></p>
+
+            <!-- Spacer -->
+            <div class="container" style="height: 50px;"></div>
+
+            <button id="submitAdmissionForm" class="btn btn-iac p-3 align-self-center" type="submit" style="width: 150px;">Submit</button>
+
+        </form>
+    </div>
+
+     <!-- Spacer -->
+     <div class="container" style="height: 100px;"></div>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-black text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-lg-0 mb-5 text-center">
+                <img src="../../image_assets/iac_logo_w.png" alt="iAcademy Logo" class="mb-3 w-100 img-fluid" style="max-width: 300px;">
+                <div class="mb-3">
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-tiktok fa-lg"></i></a>
+                </div>
+                <p class="mb-0">© iAcademy. All Rights Reserved.</p>
+            </div>
+
+            <div class="col-md-8">
+                <h5 class="text-uppercase mb-3">Contact Us</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>iAcademy Makati</h6>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                            iACADEMY Nexus, 7434 Yakal St., Makati City<br>
+                            <i class="fas fa-phone"></i> (02) 8889 5555 <br>
+                            <i class="fas fa-envelope"></i> <a href="mailto:incquire@iacademy.edu.ph" class="text-white">Incquire@iacademy.edu.ph</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6>iAcademy Cebu</h6>
+                        <p><i class="fas fa-map-marker-alt"></i>
+                            Filinvest Cebu Cyberzone Tower 2 Salinas Drive corner W. Geonzon St., Brgy. Apas, Lahug, Cebu City<br>
+                            <i class="fas fa-phone"></i> +63 32 520 4888 <br>
+                            <i class="fas fa-envelope"></i> <a href="mailto:inquirecebu@iacademy.edu.ph" class="text-white">inquirecebu@iacademy.edu.ph</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6><i class="fas fa-graduation-cap"></i> Courses</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Senior High School</a></li>
+                            <li><a href="#" class="text-white">School of Computing</a></li>
+                            <li><a href="#" class="text-white">School of Business and Liberal Arts</a></li>
+                            <li><a href="#" class="text-white">School of Design and Arts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../js/admissions.js"></script>
+<script src="../../js/global.js"></script>
+
+</body>
+</html>
