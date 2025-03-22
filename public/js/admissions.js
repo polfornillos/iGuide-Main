@@ -122,30 +122,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const schoolCampus = document.getElementById("schoolCampus");
     const recipientEmail = document.getElementById("recipientEmail");
 
-    let isMakati = true; // Default campus is Makati
+    let isMakati = true; 
+
+    // Set default email to Makati on page load
+    recipientEmail.value = "iguide2025@gmail.com";
 
     changeCampus.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent link navigation
+        event.preventDefault();
 
         if (isMakati) {
             // Switch to Cebu
             campusName.textContent = "CEBU";
-            schoolCampus.textContent="iAcademy Cebu ";
+            schoolCampus.textContent = "iAcademy Cebu ";
             campusNote.textContent = "iACADEMY Cebu Campus";
             recipientEmail.value = "fornillospaul@gmail.com"; 
             changeCampus.textContent = "click here";
         } else {
             // Switch back to Makati
             campusName.textContent = "MAKATI";
-            schoolCampus.textContent="iAcademy Makati ";
+            schoolCampus.textContent = "iAcademy Makati ";
             campusNote.textContent = "iACADEMY Makati Campus";
             recipientEmail.value = "iguide2025@gmail.com";
             changeCampus.textContent = "click here";
         }
 
-        isMakati = !isMakati; // Toggle state
+        isMakati = !isMakati;
     });
 });
+
 
 // Submits the form
 document.addEventListener("DOMContentLoaded", function () {
