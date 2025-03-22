@@ -29,8 +29,8 @@ app.post("/send-email", async (req, res) => {
 
     // Format email message
     const mailOptions = {
-        from: `"iACADEMY Admissions" <${process.env.EMAIL_USER || "your-email@gmail.com"}>`,
-        to: "fornillospaul@gmail.com", // Default recipient
+        from: `"iACADEMY Admissions" <${process.env.EMAIL_USER}>`,
+        to: `<${formData.recipientEmail}>`,
         subject: `New Admission Form Submission: ${formData.firstName} ${formData.lastName}`,
         html: `
             <h3>Application Details</h3>

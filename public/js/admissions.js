@@ -116,24 +116,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Changes the makati to cebu and vice versa
 document.addEventListener("DOMContentLoaded", function () {
-    const changeCampusLink = document.getElementById("changeCampus");
     const campusName = document.getElementById("campusName");
     const campusNote = document.getElementById("campusNote");
+    const changeCampus = document.getElementById("changeCampus");
+    const schoolCampus = document.getElementById("schoolCampus");
+    const recipientEmail = document.getElementById("recipientEmail");
 
-    if (changeCampusLink && campusName && campusNote) {
-        changeCampusLink.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default link behavior
+    let isMakati = true; // Default campus is Makati
 
-            // Toggle between Makati and Cebu
-            if (campusName.textContent.trim() === "MAKATI") {
-                campusName.textContent = "CEBU";
-                campusNote.textContent = "iACADEMY Cebu Campus";
-            } else {
-                campusName.textContent = "MAKATI";
-                campusNote.textContent = "iACADEMY Makati Campus";
-            }
-        });
-    }
+    changeCampus.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent link navigation
+
+        if (isMakati) {
+            // Switch to Cebu
+            campusName.textContent = "CEBU";
+            schoolCampus.textContent="iAcademy Cebu ";
+            campusNote.textContent = "iACADEMY Cebu Campus";
+            recipientEmail.value = "fornillospaul@gmail.com"; 
+            changeCampus.textContent = "click here";
+        } else {
+            // Switch back to Makati
+            campusName.textContent = "MAKATI";
+            schoolCampus.textContent="iAcademy Makati ";
+            campusNote.textContent = "iACADEMY Makati Campus";
+            recipientEmail.value = "iguide2025@gmail.com";
+            changeCampus.textContent = "click here";
+        }
+
+        isMakati = !isMakati; // Toggle state
+    });
 });
 
 // Submits the form
@@ -147,6 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".radio-box").forEach(el => el.classList.remove("radio-box-error"));
 
         let formData = {
+            recipientEmail: document.getElementById("recipientEmail").value.trim(),
+
             // Basic Information
             firstName: document.getElementById("firstName").value.trim(),
             middleName: document.getElementById("middleName").value.trim(),
