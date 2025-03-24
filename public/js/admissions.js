@@ -29,10 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll('input[name="applicant_type"]').forEach(radio => {
         radio.addEventListener('change', function() {
-            updateProgramDropdowns(this.value.includes('degree') ? degreePrograms : generalPrograms);
+            if (this.value === "iAcademy College Graduate" || this.value === "Degree from other college") {
+                updateProgramDropdowns(degreePrograms); // Use degree programs
+            } else {
+                updateProgramDropdowns(generalPrograms); // Use general programs
+            }
         });
     });
 });
+
 
 function initializeDropdowns() {
     ["firstChoice", "secondChoice", "thirdChoice"].forEach(id => {
@@ -246,9 +251,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let missingFields = [];
 
          // Validate if Confirm Email Matches
-         if (formData.emailAddress !== formData.confirmEmailAddress) {
+        if (formData.emailAddress !== formData.confirmEmailAddress) {
             missingFields.push("confirmEmailAddress");
-            document.getElementById("confirmEmailAddress").style.border = "2px solid red";
+            document.getElementById("confirmEmailAddress").classList.add("is-invalid");
             Swal.fire({
                 icon: "error",
                 title: "Email Mismatch",
@@ -261,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Validate if Confirm Mobile Matches
         if (formData.mobileNumber !== formData.confirmMobileNumber) {
             missingFields.push("confirmMobileNumber");
-            document.getElementById("confirmMobileNumber").style.border = "2px solid red";
+            document.getElementById("confirmMobileNumber").classList.add("is-invalid");
             Swal.fire({
                 icon: "error",
                 title: "Mobile Number Mismatch",
@@ -285,11 +290,23 @@ document.addEventListener("DOMContentLoaded", function () {
         // Validate input fields
         requiredFields.forEach(id => {
             let input = document.getElementById(id);
+            
             if (!formData[id] || formData[id] === "null" || formData[id] === "undefined") {
                 missingFields.push(id);
-                input.style.border = "1px solid red";
+                input.classList.add("is-invalid"); // Add Bootstrap's invalid class
+            } else {
+                input.classList.remove("is-invalid"); // Remove error if input is valid
             }
         });
+        
+        // Reset border color when typing/selecting an option
+        requiredFields.forEach(id => {
+            let input = document.getElementById(id);
+            input.addEventListener("input", function () {
+                this.classList.remove("is-invalid");
+            });
+        });
+        
  
         // Validate Health Concerns (Textbox must not be empty)
         if (!formData.healthConcerns) {
@@ -365,17 +382,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Reset border color when typing/selecting an option
-    document.querySelectorAll(".form-control, .form-select").forEach(input => {
-        input.addEventListener("input", function () {
-            this.style.border = "";
-        });
-
-        input.addEventListener("change", function () {
-            this.style.border = "";
-        });
-    });
-
     // Reset radio button error when selecting an option
     document.querySelectorAll("input[name='applicant_type']").forEach(input => {
         input.addEventListener("change", function () {
@@ -407,6 +413,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!this.checked) {
             document.getElementById("otherHealthDetails").value = ""; // Clear input when unchecked
         }
+    });
+
+    document.getElementById("confirmEmailAddress").addEventListener("input", function() {
+        this.classList.remove("is-invalid");
+    });
+    
+    document.getElementById("confirmMobileNumber").addEventListener("input", function() {
+        this.classList.remove("is-invalid");
     });
 });
 
