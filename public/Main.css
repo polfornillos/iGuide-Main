@@ -389,6 +389,12 @@ tbody td img{
     max-width: 100%;
 }
 
+#modalDescription {
+    word-wrap: break-word; 
+    white-space: normal;
+    overflow-wrap: break-word; 
+}
+
 .gallery-container {
     position: relative;
     overflow: hidden; /* Ensures animation stays inside */
