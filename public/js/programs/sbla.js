@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return; // Stop execution
     }
 
-    fetch("http://localhost:5000/programs/sbla")
+    fetch("http://localhost:5000/programs/department/sbla")
         .then(response => response.json())
         .then(data => {
             data.forEach((program, index) => {
