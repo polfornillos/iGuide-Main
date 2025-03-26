@@ -67,13 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="news-card d-flex flex-column">
                             <img src="${news.thumbnail}" 
                                 alt="News Thumbnail" 
-                                class="news-thumbnail">
+                                class="news-thumbnail"
+                                data-id="${news.id}" 
+                                data-title="${news.title}" 
+                                data-description="${news.description}" 
+                                data-thumbnail="${news.thumbnail}">
                             <div class="news-content d-flex flex-column w-100 p-3">
                                 <div class="news-text">
                                     <h3 class="news-title fs-4 text-start mb-1 text-white">${news.title}</h3>
                                     <p class="news-description text-start text-white">${news.description}</p>
                                 </div>
-                                <a href="#" class="read-more text-end mt-4 clickable-news">
+                                <a href="#" class="read-more text-end mt-4 clickable-news"
+                                    data-id="${news.id}" 
+                                    data-title="${news.title}" 
+                                    data-description="${news.description}" 
+                                    data-thumbnail="${news.thumbnail}">
                                     Read More
                                 </a>
                             </div>
@@ -83,7 +91,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 seeMoreNewsBtn.style.display = "none"; // Hide button after showing all
+
+                // Re-attach click event listener to the newly added news items
+                document.querySelectorAll(".clickable-news").forEach(item => {
+                    item.addEventListener("click", function () {
+                        document.getElementById("articleNumber").textContent = this.dataset.id;
+                        document.getElementById("modalTitle").textContent = this.dataset.title;
+                        document.getElementById("modalDescription").textContent = this.dataset.description;
+                        document.getElementById("modalImage").src = this.dataset.thumbnail;
+
+                        newsModal.show();
+                    });
+                });
             });
+
 
             // Attach click event listener to all news items
             document.querySelectorAll(".clickable-news").forEach(item => {

@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 function initializeDropdowns() {
     ["firstChoice", "secondChoice", "thirdChoice"].forEach(id => {
         const select = document.getElementById(id);
@@ -56,7 +55,6 @@ function updateProgramDropdowns(programList) {
         });
     });
 }
-
 
 // Populates country and country code
 document.addEventListener("DOMContentLoaded", function () {
@@ -154,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         isMakati = !isMakati;
     });
 });
-
 
 // Submits the form
 document.addEventListener("DOMContentLoaded", function () {
